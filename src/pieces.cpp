@@ -1,10 +1,11 @@
 #include "../include/pieces.h"
 #include "../include/texture_manager.h"
+#include "../include/pieces_def.h"
 #include <SDL2/SDL_error.h>
-#include <cstddef>
 #include <iostream> // debug
 #include <SDL2/SDL_image.h>
- 
+
+
 namespace Candy{
     // static Renderer stuff  
     SDL_Renderer* Piece::s_Renderer = NULL;

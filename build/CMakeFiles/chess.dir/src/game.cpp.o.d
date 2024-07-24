@@ -345,6 +345,7 @@ CMakeFiles/chess.dir/src/game.cpp.o: \
   /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h \
   /Users/pierce/Documents/programming/projects/chess/include/pieces_manager.h \
   /Users/pierce/Documents/programming/projects/chess/include/pieces.h \
+  /Users/pierce/Documents/programming/projects/chess/include/pieces_def.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/array \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/equal.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/comp.h \

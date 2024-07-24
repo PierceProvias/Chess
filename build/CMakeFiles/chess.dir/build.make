@@ -111,10 +111,38 @@ CMakeFiles/chess.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pierce/Documents/programming/projects/chess/src/main.cpp -o CMakeFiles/chess.dir/src/main.cpp.s
 
+CMakeFiles/chess.dir/src/moves.cpp.o: CMakeFiles/chess.dir/flags.make
+CMakeFiles/chess.dir/src/moves.cpp.o: /Users/pierce/Documents/programming/projects/chess/src/moves.cpp
+CMakeFiles/chess.dir/src/moves.cpp.o: CMakeFiles/chess.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chess.dir/src/moves.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess.dir/src/moves.cpp.o -MF CMakeFiles/chess.dir/src/moves.cpp.o.d -o CMakeFiles/chess.dir/src/moves.cpp.o -c /Users/pierce/Documents/programming/projects/chess/src/moves.cpp
+
+CMakeFiles/chess.dir/src/moves.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/moves.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pierce/Documents/programming/projects/chess/src/moves.cpp > CMakeFiles/chess.dir/src/moves.cpp.i
+
+CMakeFiles/chess.dir/src/moves.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/moves.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pierce/Documents/programming/projects/chess/src/moves.cpp -o CMakeFiles/chess.dir/src/moves.cpp.s
+
+CMakeFiles/chess.dir/src/pawn.cpp.o: CMakeFiles/chess.dir/flags.make
+CMakeFiles/chess.dir/src/pawn.cpp.o: /Users/pierce/Documents/programming/projects/chess/src/pawn.cpp
+CMakeFiles/chess.dir/src/pawn.cpp.o: CMakeFiles/chess.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chess.dir/src/pawn.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess.dir/src/pawn.cpp.o -MF CMakeFiles/chess.dir/src/pawn.cpp.o.d -o CMakeFiles/chess.dir/src/pawn.cpp.o -c /Users/pierce/Documents/programming/projects/chess/src/pawn.cpp
+
+CMakeFiles/chess.dir/src/pawn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/pawn.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pierce/Documents/programming/projects/chess/src/pawn.cpp > CMakeFiles/chess.dir/src/pawn.cpp.i
+
+CMakeFiles/chess.dir/src/pawn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/pawn.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pierce/Documents/programming/projects/chess/src/pawn.cpp -o CMakeFiles/chess.dir/src/pawn.cpp.s
+
 CMakeFiles/chess.dir/src/pieces.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/pieces.cpp.o: /Users/pierce/Documents/programming/projects/chess/src/pieces.cpp
 CMakeFiles/chess.dir/src/pieces.cpp.o: CMakeFiles/chess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/chess.dir/src/pieces.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/chess.dir/src/pieces.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess.dir/src/pieces.cpp.o -MF CMakeFiles/chess.dir/src/pieces.cpp.o.d -o CMakeFiles/chess.dir/src/pieces.cpp.o -c /Users/pierce/Documents/programming/projects/chess/src/pieces.cpp
 
 CMakeFiles/chess.dir/src/pieces.cpp.i: cmake_force
@@ -128,7 +156,7 @@ CMakeFiles/chess.dir/src/pieces.cpp.s: cmake_force
 CMakeFiles/chess.dir/src/pieces_manager.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/pieces_manager.cpp.o: /Users/pierce/Documents/programming/projects/chess/src/pieces_manager.cpp
 CMakeFiles/chess.dir/src/pieces_manager.cpp.o: CMakeFiles/chess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/chess.dir/src/pieces_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/chess.dir/src/pieces_manager.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess.dir/src/pieces_manager.cpp.o -MF CMakeFiles/chess.dir/src/pieces_manager.cpp.o.d -o CMakeFiles/chess.dir/src/pieces_manager.cpp.o -c /Users/pierce/Documents/programming/projects/chess/src/pieces_manager.cpp
 
 CMakeFiles/chess.dir/src/pieces_manager.cpp.i: cmake_force
@@ -142,7 +170,7 @@ CMakeFiles/chess.dir/src/pieces_manager.cpp.s: cmake_force
 CMakeFiles/chess.dir/src/texture_manager.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/texture_manager.cpp.o: /Users/pierce/Documents/programming/projects/chess/src/texture_manager.cpp
 CMakeFiles/chess.dir/src/texture_manager.cpp.o: CMakeFiles/chess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/chess.dir/src/texture_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/chess.dir/src/texture_manager.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chess.dir/src/texture_manager.cpp.o -MF CMakeFiles/chess.dir/src/texture_manager.cpp.o.d -o CMakeFiles/chess.dir/src/texture_manager.cpp.o -c /Users/pierce/Documents/programming/projects/chess/src/texture_manager.cpp
 
 CMakeFiles/chess.dir/src/texture_manager.cpp.i: cmake_force
@@ -158,6 +186,8 @@ chess_OBJECTS = \
 "CMakeFiles/chess.dir/src/board.cpp.o" \
 "CMakeFiles/chess.dir/src/game.cpp.o" \
 "CMakeFiles/chess.dir/src/main.cpp.o" \
+"CMakeFiles/chess.dir/src/moves.cpp.o" \
+"CMakeFiles/chess.dir/src/pawn.cpp.o" \
 "CMakeFiles/chess.dir/src/pieces.cpp.o" \
 "CMakeFiles/chess.dir/src/pieces_manager.cpp.o" \
 "CMakeFiles/chess.dir/src/texture_manager.cpp.o"
@@ -168,6 +198,8 @@ chess_EXTERNAL_OBJECTS =
 chess: CMakeFiles/chess.dir/src/board.cpp.o
 chess: CMakeFiles/chess.dir/src/game.cpp.o
 chess: CMakeFiles/chess.dir/src/main.cpp.o
+chess: CMakeFiles/chess.dir/src/moves.cpp.o
+chess: CMakeFiles/chess.dir/src/pawn.cpp.o
 chess: CMakeFiles/chess.dir/src/pieces.cpp.o
 chess: CMakeFiles/chess.dir/src/pieces_manager.cpp.o
 chess: CMakeFiles/chess.dir/src/texture_manager.cpp.o
@@ -175,7 +207,7 @@ chess: CMakeFiles/chess.dir/build.make
 chess: /opt/homebrew/lib/libSDL2.dylib
 chess: /opt/homebrew/lib/libSDL2_image.dylib
 chess: CMakeFiles/chess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/pierce/Documents/programming/projects/chess/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable chess"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

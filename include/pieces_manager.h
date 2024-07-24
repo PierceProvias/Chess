@@ -4,22 +4,6 @@
 #include "board.h"
 #include <array>
 
-namespace PIECES_TYPE {
-    const int EMPTY = 0;
-    const int WHITE_KING   = 1;
-    const int WHITE_QUEEN  = 2;
-    const int WHITE_BISHOP = 3;
-    const int WHITE_KNIGHT = 4;
-    const int WHITE_ROOK   = 5;
-    const int WHITE_PAWN   = 6;
-    const int BLACK_KING   = -1;
-    const int BLACK_QUEEN  = -2;
-    const int BLACK_BISHOP = -3;
-    const int BLACK_KNIGHT = -4;
-    const int BLACK_ROOK   = -5;
-    const int BLACK_PAWN   = -6;
-};
-
 namespace Candy {
     class PiecesManger {
     public:

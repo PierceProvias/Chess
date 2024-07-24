@@ -1,4 +1,6 @@
 #include "../include/pieces_manager.h"
+#include "../include/pieces_def.h"
+#include "../include/moves.h"
 #include <iostream>
 
 namespace Candy
@@ -147,14 +149,22 @@ namespace Candy
             m_PieceSelectState = false;
             int  _newCol= *p_MouseX / m_BoardPieceSize;
             int  _newRow = *p_MouseY / m_BoardPieceSize;
-            m_BoardPieces[_newRow][_newCol] =  m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col];
-            if (m_LastPiece_Col != _newCol || m_LastPiece_Row != _newRow) 
+            // later handle range 0 -- 7 not outside of window
+            if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)))
+            {
+                m_BoardPieces[_newRow][_newCol] =  m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] ;
+            }
+            else {
+                _newRow = m_LastPiece_Row;
+                _newCol = m_LastPiece_Col;
+            }
+            if (m_LastPiece_Col != _newCol || m_LastPiece_Row != _newRow)
             {
                 m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] = PIECES_TYPE::EMPTY;
             }
-
-            //m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setTextureFromPath(EMPTY_PATH);
             CalculatePieces();
+            //m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setTextureFromPath(EMPTY_PATH);
+
         }
     }
 }

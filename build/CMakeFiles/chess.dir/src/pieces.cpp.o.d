@@ -339,7 +339,9 @@ CMakeFiles/chess.dir/src/pieces.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_version.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
+  /Users/pierce/Documents/programming/projects/chess/include/pieces_def.h \
   /Users/pierce/Documents/programming/projects/chess/src/../include/texture_manager.h \
+  /Users/pierce/Documents/programming/projects/chess/src/../include/pieces_def.h \
   /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_error.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/ios \

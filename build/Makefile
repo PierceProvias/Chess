@@ -201,6 +201,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/moves.o: src/moves.cpp.o
+.PHONY : src/moves.o
+
+# target to build an object file
+src/moves.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/moves.cpp.o
+.PHONY : src/moves.cpp.o
+
+src/moves.i: src/moves.cpp.i
+.PHONY : src/moves.i
+
+# target to preprocess a source file
+src/moves.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/moves.cpp.i
+.PHONY : src/moves.cpp.i
+
+src/moves.s: src/moves.cpp.s
+.PHONY : src/moves.s
+
+# target to generate assembly for a file
+src/moves.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/moves.cpp.s
+.PHONY : src/moves.cpp.s
+
+src/pawn.o: src/pawn.cpp.o
+.PHONY : src/pawn.o
+
+# target to build an object file
+src/pawn.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pawn.cpp.o
+.PHONY : src/pawn.cpp.o
+
+src/pawn.i: src/pawn.cpp.i
+.PHONY : src/pawn.i
+
+# target to preprocess a source file
+src/pawn.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pawn.cpp.i
+.PHONY : src/pawn.cpp.i
+
+src/pawn.s: src/pawn.cpp.s
+.PHONY : src/pawn.s
+
+# target to generate assembly for a file
+src/pawn.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pawn.cpp.s
+.PHONY : src/pawn.cpp.s
+
 src/pieces.o: src/pieces.cpp.o
 .PHONY : src/pieces.o
 
@@ -291,6 +339,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/moves.o"
+	@echo "... src/moves.i"
+	@echo "... src/moves.s"
+	@echo "... src/pawn.o"
+	@echo "... src/pawn.i"
+	@echo "... src/pawn.s"
 	@echo "... src/pieces.o"
 	@echo "... src/pieces.i"
 	@echo "... src/pieces.s"

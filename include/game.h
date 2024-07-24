@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "board.h"
-#include "pieces.h"
+//#include "Pieces.hpp"
 #include "pieces_manager.h"
 namespace Candy
 {
@@ -18,15 +18,17 @@ namespace Candy
     private:
         void init();
         void drawBoard();
+        void updateMousePosition();
+        void getMousePosition(int* x,int * y);
         bool m_Running = false;
 
         Board* m_Board;
-        bool m_Is_Selected; 
+        bool m_Is_Selected;
+        int *m_CurrentmouseX;
+        int *m_CurrentmouseY;
         SDL_Window* m_Window;
         SDL_Renderer* m_Renderer;
         SDL_Event* m_Event;
-
-        Piece* m_WPawn;
         PiecesManger* m_BoardPieces;
     };
 };

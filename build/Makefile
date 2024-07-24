@@ -201,6 +201,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/pieces.o: src/pieces.cpp.o
+.PHONY : src/pieces.o
+
+# target to build an object file
+src/pieces.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces.cpp.o
+.PHONY : src/pieces.cpp.o
+
+src/pieces.i: src/pieces.cpp.i
+.PHONY : src/pieces.i
+
+# target to preprocess a source file
+src/pieces.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces.cpp.i
+.PHONY : src/pieces.cpp.i
+
+src/pieces.s: src/pieces.cpp.s
+.PHONY : src/pieces.s
+
+# target to generate assembly for a file
+src/pieces.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces.cpp.s
+.PHONY : src/pieces.cpp.s
+
+src/texture_manager.o: src/texture_manager.cpp.o
+.PHONY : src/texture_manager.o
+
+# target to build an object file
+src/texture_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/texture_manager.cpp.o
+.PHONY : src/texture_manager.cpp.o
+
+src/texture_manager.i: src/texture_manager.cpp.i
+.PHONY : src/texture_manager.i
+
+# target to preprocess a source file
+src/texture_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/texture_manager.cpp.i
+.PHONY : src/texture_manager.cpp.i
+
+src/texture_manager.s: src/texture_manager.cpp.s
+.PHONY : src/texture_manager.s
+
+# target to generate assembly for a file
+src/texture_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/texture_manager.cpp.s
+.PHONY : src/texture_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +267,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/pieces.o"
+	@echo "... src/pieces.i"
+	@echo "... src/pieces.s"
+	@echo "... src/texture_manager.o"
+	@echo "... src/texture_manager.i"
+	@echo "... src/texture_manager.s"
 .PHONY : help
 
 

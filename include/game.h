@@ -2,6 +2,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "board.h"
+#include "pieces.h"
+
 namespace Candy
 {
     class Game
@@ -19,9 +21,10 @@ namespace Candy
         bool m_Running = false;
 
         Board* m_Board;
-
+        bool m_Is_Selected; 
         SDL_Window* m_Window;
         SDL_Renderer* m_Renderer;
         SDL_Event* m_Event;
+        Piece* m_WPawn;
     };
 };

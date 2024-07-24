@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/pierce/Documents/programming/projects/chess/src/board.cpp" "CMakeFiles/chess.dir/src/board.cpp.o" "gcc" "CMakeFiles/chess.dir/src/board.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/game.cpp" "CMakeFiles/chess.dir/src/game.cpp.o" "gcc" "CMakeFiles/chess.dir/src/game.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/main.cpp" "CMakeFiles/chess.dir/src/main.cpp.o" "gcc" "CMakeFiles/chess.dir/src/main.cpp.o.d"
+  "/Users/pierce/Documents/programming/projects/chess/src/pieces.cpp" "CMakeFiles/chess.dir/src/pieces.cpp.o" "gcc" "CMakeFiles/chess.dir/src/pieces.cpp.o.d"
+  "/Users/pierce/Documents/programming/projects/chess/src/texture_manager.cpp" "CMakeFiles/chess.dir/src/texture_manager.cpp.o" "gcc" "CMakeFiles/chess.dir/src/texture_manager.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

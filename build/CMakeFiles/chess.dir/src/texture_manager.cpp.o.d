@@ -1,5 +1,6 @@
-CMakeFiles/chess.dir/src/main.cpp.o: \
-  /Users/pierce/Documents/programming/projects/chess/src/main.cpp \
+CMakeFiles/chess.dir/src/texture_manager.cpp.o: \
+  /Users/pierce/Documents/programming/projects/chess/src/texture_manager.cpp \
+  /Users/pierce/Documents/programming/projects/chess/src/../include/texture_manager.h \
   /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_main.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_stdinc.h \
@@ -338,10 +339,6 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_version.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
-  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_gamecontroller.h \
   /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
-  /Users/pierce/Documents/programming/projects/chess/src/../include/game.h \
-  /Users/pierce/Documents/programming/projects/chess/include/board.h \
-  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h \
-  /Users/pierce/Documents/programming/projects/chess/include/pieces.h
+  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h

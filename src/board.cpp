@@ -1,5 +1,5 @@
-//#include "../include/board.h"
-#include "../include/board.h"
+  #include "../include/board.h"
+
 
   namespace Candy{
       Board::Board(int p_SizeBoard , SDL_Renderer* p_Renderer)

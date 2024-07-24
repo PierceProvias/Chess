@@ -9,11 +9,11 @@
 namespace Candy{
     class Board {
     public:
-            Board(int p_SizeBoard,SDL_Renderer* p_Renderer); // i will only drawSquare     
+            Board(int p_SizeBoard,SDL_Renderer* p_Renderer);   
             void drawBoard();
     private:
             SDL_Renderer* m_Renderer;
-           // std::array<int,MAX_PIECES_SPACE  > m_Pieces;
+           // std::array<int,MAX_PIECES_SPACE> m_Pieces;
             int m_PiecesSize = 75;
             int m_BoardSize;
     };

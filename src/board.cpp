@@ -21,9 +21,9 @@
                    _block.w = _block.h = m_PiecesSize;
                   if ((row+column)%2 == 0)
                   {
-                       SDL_SetRenderDrawColor  (m_Renderer, 255,255,255,255);
+                       SDL_SetRenderDrawColor  (m_Renderer, 120,120,120,255);
                    }else{
-                        SDL_SetRenderDrawColor (m_Renderer, 0,0,0,255);
+                        SDL_SetRenderDrawColor (m_Renderer, 50,50,50,255);
                    }
                   SDL_RenderFillRect(m_Renderer,&_block);
              }

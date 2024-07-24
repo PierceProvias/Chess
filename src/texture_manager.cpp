@@ -1,6 +1,5 @@
 #include "../include/texture_manager.h"
 #include <SDL2/SDL_image.h>
-#include <SDL2/SDL_render.h>
 #include <cstddef>
 
 namespace Candy{
@@ -20,7 +19,10 @@ namespace Candy{
     void TextureManger::Render(SDL_Renderer *p_Renderer, SDL_Texture *p_Texture,
              SDL_Rect* p_DsntRect)
     {
+        
+ //       SDL_Rect _srcRect = {0,0,60,60}; // later fix it this manually hard coded
         SDL_RenderCopy(p_Renderer,p_Texture,NULL,p_DsntRect);
+       // std::cout<<"Draw using TextureManger" <<std::endl;
     }
 
 

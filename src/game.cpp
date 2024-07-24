@@ -1,10 +1,7 @@
 #include "../include/game.h"
-#include <SDL2/SDL_events.h>
-#include <SDL2/SDL_keycode.h>
-#include <SDL2/SDL_mouse.h>
-#include <cstddef>
-#include <iostream>
-// for debugging 
+#include <SDL2/SDL_timer.h>
+#include <iostream> // for debugging 
+                    
 namespace Candy{
     void Game::init()
     {
@@ -21,9 +18,10 @@ namespace Candy{
                                     p_Width, p_Height, SDL_WINDOW_SHOWN);
        m_Renderer = SDL_CreateRenderer(m_Window,-1, SDL_RENDERER_PRESENTVSYNC);
        m_Board = new Board(p_Height,m_Renderer);
-       m_WPawn = new Piece(m_Renderer,WHITE_PAWN_PATH,75);
+       m_WPawn = new Piece(m_Renderer,WHITE_KING_PATH,75);
        std::cout<<"Successful in Construtor "<<std::endl;
        m_WPawn->setPosition(100, 100);
+       m_BoardPieces = new PiecesManger(m_Renderer,p_Height); 
     }
     Game::~Game()
     {
@@ -83,37 +81,12 @@ namespace Candy{
         SDL_RenderClear(m_Renderer);
         // draw from their
          m_Board->drawBoard();
-
+         m_BoardPieces->drawPieces();
         m_WPawn->draw();
         SDL_RenderPresent(m_Renderer);
     }
 
      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 };

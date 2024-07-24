@@ -21,7 +21,7 @@ int main(int argc , char * argv[])
 
 inline void init(){
     SDL_Init(SDL_INIT_VIDEO);
-    IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG); 
+    IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG); // I am plaining on using PNG and JPEG picture
 }
 
 inline void GameLoop()
@@ -32,11 +32,15 @@ inline void GameLoop()
         Game.pollEvent();
         Game.update();
         Game.render();
+
     }
+
 }
 
 inline void close()
 {
     SDL_Quit();
     IMG_Quit();
+
 }
+// now we have successfully create window now lets do this class so we have make things easier

@@ -340,5 +340,4 @@ CMakeFiles/chess.dir/src/texture_manager.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
   /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
-  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
-  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h
+  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h

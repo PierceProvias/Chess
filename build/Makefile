@@ -225,6 +225,30 @@ src/pieces.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces.cpp.s
 .PHONY : src/pieces.cpp.s
 
+src/pieces_manager.o: src/pieces_manager.cpp.o
+.PHONY : src/pieces_manager.o
+
+# target to build an object file
+src/pieces_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces_manager.cpp.o
+.PHONY : src/pieces_manager.cpp.o
+
+src/pieces_manager.i: src/pieces_manager.cpp.i
+.PHONY : src/pieces_manager.i
+
+# target to preprocess a source file
+src/pieces_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces_manager.cpp.i
+.PHONY : src/pieces_manager.cpp.i
+
+src/pieces_manager.s: src/pieces_manager.cpp.s
+.PHONY : src/pieces_manager.s
+
+# target to generate assembly for a file
+src/pieces_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/pieces_manager.cpp.s
+.PHONY : src/pieces_manager.cpp.s
+
 src/texture_manager.o: src/texture_manager.cpp.o
 .PHONY : src/texture_manager.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/pieces.o"
 	@echo "... src/pieces.i"
 	@echo "... src/pieces.s"
+	@echo "... src/pieces_manager.o"
+	@echo "... src/pieces_manager.i"
+	@echo "... src/pieces_manager.s"
 	@echo "... src/texture_manager.o"
 	@echo "... src/texture_manager.i"
 	@echo "... src/texture_manager.s"

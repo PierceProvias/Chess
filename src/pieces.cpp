@@ -12,8 +12,11 @@ namespace Candy
         : m_Renderer(p_Renderer)
     {
         init();
+        // so this means that this problem causing this
         m_PieceTexture = TextureManger::GetTexture(m_Renderer,p_FilePath);
         m_PieceProperty->w =  p_PieceSize;
+        // so this is the problem
+
         m_PieceProperty->h = p_PieceSize;
     }
     Piece::~Piece()
@@ -32,8 +35,8 @@ namespace Candy
     }
     void Piece::draw()
     {
-        Candy::TextureManger::Render(m_Renderer, m_PieceTexture, m_PieceProperty);
-        SDL_RenderCopy(m_Renderer, m_PieceTexture, NULL, m_PieceProperty);
+        TextureManger::Render(m_Renderer,m_PieceTexture,m_PieceProperty);
+       // SDL_RenderCopy(m_Renderer, m_PieceTexture, NULL, m_PieceProperty);
     }
     
 

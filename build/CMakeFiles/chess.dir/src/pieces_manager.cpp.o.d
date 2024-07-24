@@ -1,5 +1,7 @@
-CMakeFiles/chess.dir/src/main.cpp.o: \
-  /Users/pierce/Documents/programming/projects/chess/src/main.cpp \
+CMakeFiles/chess.dir/src/pieces_manager.cpp.o: \
+  /Users/pierce/Documents/programming/projects/chess/src/pieces_manager.cpp \
+  /Users/pierce/Documents/programming/projects/chess/src/../include/pieces_manager.h \
+  /Users/pierce/Documents/programming/projects/chess/include/pieces.h \
   /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_main.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_stdinc.h \
@@ -338,14 +340,7 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_version.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
-  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_gamecontroller.h \
-  /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
-  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
-  /Users/pierce/Documents/programming/projects/chess/src/../include/game.h \
-  /Users/pierce/Documents/programming/projects/chess/include/board.h \
   /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h \
-  /Users/pierce/Documents/programming/projects/chess/include/pieces.h \
-  /Users/pierce/Documents/programming/projects/chess/include/pieces_manager.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -913,4 +908,11 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/cstdarg \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/temp_value.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__split_buffer
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__split_buffer \
+  /Users/pierce/Documents/programming/projects/chess/include/board.h \
+  /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
+  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/iostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/istream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/ostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/bitset

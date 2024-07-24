@@ -3,7 +3,7 @@
 #include <SDL2/SDL_image.h>
 #include "board.h"
 #include "pieces.h"
-
+#include "pieces_manager.h"
 namespace Candy
 {
     class Game
@@ -25,6 +25,8 @@ namespace Candy
         SDL_Window* m_Window;
         SDL_Renderer* m_Renderer;
         SDL_Event* m_Event;
+
         Piece* m_WPawn;
+        PiecesManger* m_BoardPieces;
     };
 };

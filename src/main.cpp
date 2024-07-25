@@ -1,6 +1,3 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_gamecontroller.h>
-#include <SDL2/SDL_image.h>
 #include "../include/game.h"
 
 #define WINDOW_WIDTH 600

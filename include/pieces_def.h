@@ -45,9 +45,10 @@ namespace PIECES_TYPE {
 class Player
 {
 public:
-    Player(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_BoardPiece) : BoardPieces(p_BoardPiece)
+    Player(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_BoardPiece) 
+        : BoardPieces(p_BoardPiece) ,row (0),col(0),isSeleted(false)
     {}
-    ~Player(){} 
+    ~Player(){} // dont decided on now
     bool isSeleted;
     int row;
     int col;

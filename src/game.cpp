@@ -1,7 +1,6 @@
 #include "../include/game.h"
 #include <SDL2/SDL_mouse.h>
 #include <SDL2/SDL_timer.h>
-#include <iostream> 
                     
 namespace Candy{
     void Game::init()
@@ -37,7 +36,7 @@ namespace Candy{
     bool  Game::isRunning() const
     {
         return m_Running;
-    }
+    } 
     void Game::pollEvent()
     {
          while (SDL_PollEvent(m_Event)) {
@@ -66,29 +65,21 @@ namespace Candy{
     }
     void Game::update()
     {
-        // lets add some movement
         updateMousePosition();
         m_BoardPieces->updateBoardPieces(m_CurrentmouseX,m_CurrentmouseY);
         m_Board->UpdatePlayer(m_BoardPieces->getPlayer());
     }
     void Game::render()
     {
-        // Setting BackGround Winodow Color 
-         SDL_SetRenderDrawColor(m_Renderer,255,255,0,255);
-        // clearing Winodw from previous drawn objects
+        SDL_SetRenderDrawColor(m_Renderer,255,255,0,255);
         SDL_RenderClear(m_Renderer);
-        // draw from their
-         m_Board->drawBoard();
-         m_BoardPieces->drawPieces();
-        SDL_RenderPresent(m_Renderer);
-      //  SDL_Delay(5000);        
+        m_Board->drawBoard();
+        m_BoardPieces->drawPieces();
+        SDL_RenderPresent(m_Renderer);       
     }
 
-     
     void Game::getMousePosition(int* x, int* y)
     {
         SDL_GetMouseState(x,y);
     }
-
-
 };

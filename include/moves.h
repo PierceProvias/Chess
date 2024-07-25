@@ -13,3 +13,5 @@ public:
     // static bool isGameOver(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard);
     // static PieceColor getWinner(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard);
 };
+
+

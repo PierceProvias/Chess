@@ -1,10 +1,10 @@
+
 #pragma once
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "board.h"
 //#include "Pieces.hpp"
 #include "pieces_manager.h"
-
 namespace Candy
 {
     class Game

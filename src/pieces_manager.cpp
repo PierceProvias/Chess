@@ -1,7 +1,6 @@
 #include "../include/pieces_manager.h"
 #include "../include/pieces_def.h"
 #include "../include/moves.h"
-#include <iostream>
 
 namespace Candy
 {
@@ -102,7 +101,7 @@ namespace Candy
                             (row * m_BoardPieceSize));
                         break;
                     default:
-                    break;
+                        break;
                 }
                 }
         }
@@ -111,7 +110,7 @@ namespace Candy
     {
        m_BoardPieceSize = p_PieceSize;
     }
-    Player PiecesManger::getPlayer()
+    Player PiecesManger::getPlayer() const 
     {
         Player _player(m_BoardPieces);
         _player.isSeleted = m_PieceSelectState;
@@ -148,15 +147,15 @@ namespace Candy
         if (p_state)
         {
             m_PieceSelectState = true;
-            m_LastPiece_Col = *p_MouseX/m_BoardPieceSize; // width
-            m_LastPiece_Row = *p_MouseY/m_BoardPieceSize; // height
+            m_LastPiece_Col = *p_MouseX/m_BoardPieceSize; // Width
+            m_LastPiece_Row = *p_MouseY/m_BoardPieceSize; // Height
         }
         else if (!p_state)
         {
             m_PieceSelectState = false;
             int  _newCol= *p_MouseX / m_BoardPieceSize;
             int  _newRow = *p_MouseY / m_BoardPieceSize;
-            if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)))
+            if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)) && (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] != PIECES_TYPE::EMPTY))
             {
                 m_BoardPieces[_newRow][_newCol] =  m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] ;
             }
@@ -164,7 +163,7 @@ namespace Candy
                 _newRow = m_LastPiece_Row;
                 _newCol = m_LastPiece_Col;
             }
-            if (m_LastPiece_Col != _newCol || m_LastPiece_Row != _newRow)
+            if ((m_LastPiece_Col != _newCol || m_LastPiece_Row != _newRow ))
             {
                 m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] = PIECES_TYPE::EMPTY;
             }

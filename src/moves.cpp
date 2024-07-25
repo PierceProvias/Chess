@@ -1,6 +1,6 @@
 #include "../include/moves.h"
 #include "../include/pieces_def.h"
-#include <iostream> 
+#include <iostream> //debug
 
 // TODO: Add promotion
 #pragma region Pawn
@@ -58,13 +58,12 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
                 if (StartPos.Col - 1 <= EndPos.Col && EndPos.Col <= StartPos.Col + 1)
                     return true;
             }
-            // later add condition for enspassant
-            
+            // TODO: Add condition for enspassant
             return false;
         }
         else if (StartPos.Row - 2 == EndPos.Row && StartPos.Row == 6)
         {
-            if (StartPos.Col == EndPos.Col) // later add this condition from before 
+            if (StartPos.Col == EndPos.Col) 
                 return true;
         }
         else
@@ -91,6 +90,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
      return false;
  }
 #pragma endregion
+
 #pragma region Rook
  bool possibleMoveRook(const PiecePosition StartPos, const PiecePosition EndPos)
  {
@@ -126,7 +126,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
              {
                  return true;
              }
-         } 
+         }
          for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row <= 7; col--, row++) 
          {
              std::cout << "COl     :" << col << ", ROW       :" << row << std::endl;
@@ -209,19 +209,8 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
 
 bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard, PiecePosition p_OldPosition, PiecePosition p_NewPosition)
 {
-    for (int row = 0; row < MAX_PIECES_LINE; row++)
-    {
-        std::cout << "[ ROW ]: " << row <<" : { ";
-        for (int col = 0; col < MAX_PIECES_LINE; col++)
-        {
-            std::cout << p_PieceBoard[row][col] <<" , ";
-        }
-        std::cout << " } " << std::endl;
-    }
     bool _WrongMove = true;
-    
     int _PIECETYPE = p_PieceBoard[p_OldPosition.Row][p_OldPosition.Col];
-    std::cout << "PIECE TYPE " << _PIECETYPE << std::endl;
     switch (_PIECETYPE)
     {
     case PIECES_TYPE::BLACK_PAWN:
@@ -230,11 +219,9 @@ bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     case PIECES_TYPE::WHITE_PAWN:
         _WrongMove = (possibleMoveWhitePawn(p_OldPosition, p_NewPosition)) ? true : false;
         break; 
-    
     case PIECES_TYPE::BLACK_KING:
         _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) ? true : false;
         break;
-    
     case PIECES_TYPE::WHITE_KING:
         _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) ? true : false;
         break;

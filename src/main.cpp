@@ -12,11 +12,11 @@ int main(int argc , char * argv[])
     init();
     GameLoop();
     close();
-
     return 0;
 }
 
-inline void init(){
+inline void init()
+{
     SDL_Init(SDL_INIT_VIDEO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG); 
 }

@@ -36,7 +36,7 @@ namespace Candy{
     bool  Game::isRunning() const
     {
         return m_Running;
-    } 
+    }
     void Game::pollEvent()
     {
          while (SDL_PollEvent(m_Event)) {
@@ -75,7 +75,7 @@ namespace Candy{
         SDL_RenderClear(m_Renderer);
         m_Board->drawBoard();
         m_BoardPieces->drawPieces();
-        SDL_RenderPresent(m_Renderer);       
+        SDL_RenderPresent(m_Renderer);     
     }
 
     void Game::getMousePosition(int* x, int* y)

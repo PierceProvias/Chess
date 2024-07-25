@@ -32,16 +32,15 @@ namespace Candy
     
     PiecesManger::PiecesManger(SDL_Renderer* p_Renderer,int BoardSize)
           : m_Renderer(p_Renderer), m_BoardPieceSize(BoardSize/MAX_PIECES_LINE)
-      {
-           Piece::s_Renderer = m_Renderer;
-          init();
-          initDefaultBoard();
-          CalculatePieces();
-            for (int row = 0 ; row < MAX_PIECES_LINE ; row++)
-                for (int col =0 ; col < MAX_PIECES_LINE ; col++)
-                    m_DrawPieces[row][col].setPieceSize(m_BoardPieceSize);
-                    // m_DrawPieces[row][col].setOrgin(+m_BoardPieceSize/2,+m_BoardPieceSize/2);
-          }
+        {
+            Piece::s_Renderer = m_Renderer;
+            init();
+            initDefaultBoard();
+            CalculatePieces();
+                for (int row = 0 ; row < MAX_PIECES_LINE ; row++)
+                    for (int col =0 ; col < MAX_PIECES_LINE ; col++)
+                        m_DrawPieces[row][col].setPieceSize(m_BoardPieceSize);
+        }
       
     void PiecesManger::addPiece(const char* p_FilePath, int row, int col)
     {
@@ -101,9 +100,9 @@ namespace Candy
                             (row * m_BoardPieceSize));
                         break;
                     default:
-                        break;
+                    break;
                 }
-                }
+            }
         }
     }
     void PiecesManger::setSize(int p_PieceSize)
@@ -125,9 +124,7 @@ namespace Candy
         {
             for (int col = 0 ; col < MAX_PIECES_LINE; col++)
             {
-              //  m_DrawPieces[row][col].Log();
                 m_DrawPieces[row][col].draw();
-                //std::cout<<"drawing position"<<row << " , "<<col<< std::endl;
             }
         }
     }
@@ -139,6 +136,7 @@ namespace Candy
         if (m_PieceSelectState)
         {
             m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setPosition(_X ,_Y );
+
         }
     }
 
@@ -147,14 +145,16 @@ namespace Candy
         if (p_state)
         {
             m_PieceSelectState = true;
-            m_LastPiece_Col = *p_MouseX/m_BoardPieceSize; // Width
-            m_LastPiece_Row = *p_MouseY/m_BoardPieceSize; // Height
+            m_LastPiece_Col = *p_MouseX/m_BoardPieceSize; // width
+            m_LastPiece_Row = *p_MouseY/m_BoardPieceSize; // height
+
         }
         else if (!p_state)
         {
             m_PieceSelectState = false;
             int  _newCol= *p_MouseX / m_BoardPieceSize;
             int  _newRow = *p_MouseY / m_BoardPieceSize;
+
             if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)) && (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] != PIECES_TYPE::EMPTY))
             {
                 m_BoardPieces[_newRow][_newCol] =  m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] ;
@@ -168,7 +168,6 @@ namespace Candy
                 m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] = PIECES_TYPE::EMPTY;
             }
             CalculatePieces();
-            //m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setTextureFromPath(EMPTY_PATH);
         }
     }
 }

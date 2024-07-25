@@ -1,8 +1,17 @@
 #include "../include/moves.h"
 #include "../include/pieces_def.h"
-#include <iostream> //debug
+#include <iostream> 
 
-// TODO: Add promotion
+bool isBlack(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard , PiecePosition p_NewPosition)
+{
+    return (0 > p_PieceBoard[p_NewPosition.Row][p_NewPosition.Col]) ? true : false;
+}
+bool isWhite(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard , PiecePosition p_NewPosition)
+{
+    return (0 < p_PieceBoard[p_NewPosition.Row][p_NewPosition.Col]) ? true : false;
+}
+
+// TODO: Add pawn promotion
 #pragma region Pawn
 bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition EndPos)
 {
@@ -14,7 +23,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
                 if (EndPos.Col >= 0 && EndPos.Col <= StartPos.Col + 1)
                     return true;
             }
-            else if (StartPos.Col == 7)// 7 is the last column of Board 
+            else if (StartPos.Col == 7)
             {
                 if (EndPos.Col <= 7 && EndPos.Col >= StartPos.Col - 1)
                     return true;
@@ -37,8 +46,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
     } 
     return false;
 }
-
- bool possibleMoveWhitePawn(const PiecePosition StartPos, const PiecePosition EndPos)
+bool possibleMoveWhitePawn(const PiecePosition StartPos, const PiecePosition EndPos)
 {
     if (7 > StartPos.Row && StartPos.Row > 0)
     {
@@ -59,6 +67,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
                     return true;
             }
             // TODO: Add condition for enspassant
+            
             return false;
         }
         else if (StartPos.Row - 2 == EndPos.Row && StartPos.Row == 6)
@@ -75,7 +84,6 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
 
 }
 #pragma endregion
-
 #pragma region King
  bool possibleMoveKing(const PiecePosition StartPos, const PiecePosition EndPos)
  {
@@ -90,7 +98,6 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
      return false;
  }
 #pragma endregion
-
 #pragma region Rook
  bool possibleMoveRook(const PiecePosition StartPos, const PiecePosition EndPos)
  {
@@ -102,17 +109,14 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
      return false;
  }
 #pragma endregion
-
 #pragma region Bishop
  bool possibleMoveBishop(const PiecePosition StartPos, const PiecePosition EndPos)
  {
+     // first diagonal working 
      if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
      {
          for (int col = StartPos.Col , row = StartPos.Row ; col <= 7 && row <= 7 ; col++,row++) 
          {
-             std::cout << "COl     :" << col << ", ROW       :" << row << std::endl;
-             std::cout << "OLD Col :" << EndPos.Col << ", OLD row :" << EndPos.Row << std::endl;
-
              if (col == EndPos.Col && row == EndPos.Row)
              {
                  return true;
@@ -120,8 +124,6 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
          }
          for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row >=0; col--, row--) 
          {
-             std::cout << "COl :" << col << "ROW :" << row << std::endl;
-             std::cout << "OLD Col :" << EndPos.Col << "OLD row :" << EndPos.Row << std::endl;
              if (col == EndPos.Col && row == EndPos.Row)
              {
                  return true;
@@ -129,9 +131,6 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
          }
          for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row <= 7; col--, row++) 
          {
-             std::cout << "COl     :" << col << ", ROW       :" << row << std::endl;
-             std::cout << "OLD Col :" << EndPos.Col << ", OLD row :" << EndPos.Row << std::endl;
-
              if (col == EndPos.Col && row == EndPos.Row)
              {
                  return true;
@@ -139,8 +138,6 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
          }
          for (int col = StartPos.Col, row = StartPos.Row; col <= 7 && row >= 0; col++, row--) 
          {
-             std::cout << "COl :" << col << "ROW :" << row << std::endl;
-             std::cout << "OLD Col :" << EndPos.Col << "OLD row :" << EndPos.Row << std::endl;
              if (col == EndPos.Col && row == EndPos.Row)
              {
                  return true;
@@ -156,6 +153,7 @@ bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition End
  {
      if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
      {
+      // Queen has the same movement as a bishop and rook combined
          if (possibleMoveRook(StartPos, EndPos) || possibleMoveBishop(StartPos, EndPos))
          {
              return true;
@@ -217,37 +215,37 @@ bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
         _WrongMove = (possibleMoveBlackPawn(p_OldPosition, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_PAWN:
-        _WrongMove = (possibleMoveWhitePawn(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = ((possibleMoveWhitePawn(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard,p_NewPosition))) ? true : false;
         break; 
     case PIECES_TYPE::BLACK_KING:
-        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_KING:
-        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_ROOK:
-        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_ROOK:
-        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_BISHOP:
-        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_BISHOP:
-        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_QUEEN:
-        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_QUEEN:
-        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_KNIGHT:
-        _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_KNIGHT:
-        _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     }
     return _WrongMove;

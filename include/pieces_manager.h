@@ -5,7 +5,9 @@
 #include <array>
 
 namespace Candy {
-    class PiecesManger {
+    class PiecesManger 
+    {
+
     public:
         PiecesManger(SDL_Renderer* p_Renderer, int BoardSize);
         ~PiecesManger(){}

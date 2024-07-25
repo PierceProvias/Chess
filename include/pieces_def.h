@@ -46,9 +46,9 @@ class Player
 {
 public:
     Player(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_BoardPiece) 
-        : BoardPieces(p_BoardPiece) ,row (0),col(0),isSeleted(false)
+        : BoardPieces(p_BoardPiece) ,row(0), col(0), isSeleted(false)
     {}
-    ~Player(){} // dont decided on now
+    ~Player(){} 
     bool isSeleted;
     int row;
     int col;

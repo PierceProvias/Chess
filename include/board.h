@@ -7,7 +7,7 @@
 namespace Candy{
     class Board {
     public:
-            Board(int p_SizeBoard,SDL_Renderer* p_Renderer); // i will only drawSquare     
+            Board(int p_SizeBoard,SDL_Renderer* p_Renderer); 
             void drawBoard();
             int getPieceSize();
     private:

@@ -3,7 +3,6 @@
 #include "moves_def.h"
 #include "pieces_def.h"
 
-// all includes of Pieces
 static bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition EndPos);
 static bool possibleMoveWhitePawn(const PiecePosition StartPos, const PiecePosition EndPos);
 

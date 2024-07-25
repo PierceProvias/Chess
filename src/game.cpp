@@ -67,21 +67,17 @@ namespace Candy{
     }
     void Game::update()
     {
-        // lets add some movement
         updateMousePosition();
         m_BoardPieces->updateBoardPieces(m_CurrentmouseX,m_CurrentmouseY);
     }
     void Game::render()
     {
-        // Setting BackGround Winodow Color 
-         SDL_SetRenderDrawColor(m_Renderer,255,255,0,255);
-        // clearing Winodw from previous drawn objects
+
+        SDL_SetRenderDrawColor(m_Renderer,255,255,0,255);
         SDL_RenderClear(m_Renderer);
-        // draw from their
-         m_Board->drawBoard();
-         m_BoardPieces->drawPieces();
+        m_Board->drawBoard();
+        m_BoardPieces->drawPieces();
         SDL_RenderPresent(m_Renderer);
-      //  SDL_Delay(5000);        
     }
 
      

@@ -20,8 +20,8 @@ include_directories(${SDL2_IMAGE_DIR}/include)
 
 file(GLOB SOURCES "src/*.cpp")
 
-link_directories(${SDL2_DIR}/lib)
-link_directories(${SDL2_IMAGE_DIR}/lib)
+#link_directories(${SDL2_DIR}/lib)
+#link_directories(${SDL2_IMAGE_DIR}/lib)
 
 # Find SDL2 and SDL2_image libraries
 find_library(SDL2_LIBRARY NAMES SDL2 PATHS ${SDL2_DIR}/lib)

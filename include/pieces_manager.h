@@ -33,4 +33,3 @@ namespace Candy {
     };
 }
 
-//#endif // PIECESMANGER_HPP

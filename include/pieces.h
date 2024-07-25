@@ -5,7 +5,6 @@
 namespace Candy{
     class Piece
     {
-
     public:
         Piece(const char* p_FilePath,int p_PieceSize);
         Piece(){initVariable();}
@@ -23,7 +22,6 @@ namespace Candy{
         static SDL_Renderer *s_Renderer;
         static void setRenderer(SDL_Renderer* p_Renderer); 
         static SDL_Renderer* GetRenderer();
-    
     private:
         SDL_Rect *m_PieceProperty;
         SDL_Texture* m_PieceTexture;

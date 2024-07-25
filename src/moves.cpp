@@ -2,6 +2,11 @@
 #include "../include/pieces_def.h"
 #include <iostream> 
 
+static int round(int num)
+{
+    return (num > 0) ? num : num * -1;
+}
+
 bool isBlack(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard , PiecePosition p_NewPosition)
 {
     return (0 > p_PieceBoard[p_NewPosition.Row][p_NewPosition.Col]) ? true : false;
@@ -13,148 +18,266 @@ bool isWhite(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_Pie
 
 // TODO: Add pawn promotion
 #pragma region Pawn
-bool possibleMoveBlackPawn(const PiecePosition StartPos, const PiecePosition EndPos)
+bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
-    if (0 <= StartPos.Row && StartPos.Row <= 7)
+    if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
+        EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
     {
-        if (StartPos.Row + 1 == EndPos.Row) {
-            if (0 == StartPos.Col)
-            {
-                if (EndPos.Col >= 0 && EndPos.Col <= StartPos.Col + 1)
-                    return true;
-            }
-            else if (StartPos.Col == 7)
-            {
-                if (EndPos.Col <= 7 && EndPos.Col >= StartPos.Col - 1)
-                    return true;
-            }
-            else if (EndPos.Col > 0 && EndPos.Col < 7)
-            {
-                if ( StartPos.Col - 1 <= EndPos.Col&& EndPos.Col <= StartPos.Col + 1 )
-                    return true;
-            }
-        }
-        else if (StartPos.Row + 2 == EndPos.Row && StartPos.Row == 1)
-        {
-            if (StartPos.Col == EndPos.Col) 
-                return true;
-        }
-        else
-        {
-            return false; 
-        }
-    } 
-    return false;
-}
-bool possibleMoveWhitePawn(const PiecePosition StartPos, const PiecePosition EndPos)
-{
-    if (7 > StartPos.Row && StartPos.Row > 0)
+        return false;
+    }
+
+    if (StartPos.Row + 1 == EndPos.Row && StartPos.Col == EndPos.Col)
     {
-        if (StartPos.Row - 1 == EndPos.Row ) {
-            if ( StartPos.Col == 0 )
-            {
-                if (EndPos.Col >= 0 && EndPos.Col <= StartPos.Col + 1)
-                    return true;
-            }
-            else if (StartPos.Col == 7)// 7 is the last column of Board 
-            {
-                if (EndPos.Col <= 7 && EndPos.Col >= StartPos.Col - 1)
-                    return true;
-            }
-            else if (0 < StartPos.Col  && StartPos.Col < 7) 
-            {
-                if (StartPos.Col - 1 <= EndPos.Col && EndPos.Col <= StartPos.Col + 1)
-                    return true;
-            }
-            // TODO: Add condition for enspassant
-            
-            return false;
-        }
-        else if (StartPos.Row - 2 == EndPos.Row && StartPos.Row == 6)
-        {
-            if (StartPos.Col == EndPos.Col) 
-                return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (p_PieceBoard[EndPos.Row][EndPos.Col] == PIECES_TYPE::EMPTY)
+            return true;
+    }
+
+    else if (StartPos.Row == 1 && StartPos.Col == EndPos.Col)
+    {
+        if (p_PieceBoard[EndPos.Row][EndPos.Col] == PIECES_TYPE::EMPTY)
+            return true;
+    }
+
+    else if ((StartPos.Col - 1 == EndPos.Col || StartPos.Col + 1 == EndPos.Col) && (StartPos.Row + 1 == EndPos.Row))
+    {
+        if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+            return true;
     }
     return false;
+} 
+
+ bool possibleMoveWhitePawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
+{
+     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
+         EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
+     {
+         return false;
+     }
+
+     if (StartPos.Row - 1 == EndPos.Row && StartPos.Col == EndPos.Col)
+     {
+         if (p_PieceBoard[EndPos.Row][EndPos.Col] == PIECES_TYPE::EMPTY)
+             return true;
+     }
+
+     else if (StartPos.Row == 6 && StartPos.Col == EndPos.Col)
+     {
+         if (p_PieceBoard[EndPos.Row][EndPos.Col] == PIECES_TYPE::EMPTY)
+             return true;
+     }
+
+     else if ((StartPos.Col - 1 == EndPos.Col || StartPos.Col + 1 == EndPos.Col) && (StartPos.Row - 1 == EndPos.Row))
+     {
+         if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+             return true;
+     }
+     return false;
 
 }
 #pragma endregion
+
 #pragma region King
- bool possibleMoveKing(const PiecePosition StartPos, const PiecePosition EndPos)
+
+ bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
-     if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
+
+     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7
+         || EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
-         if ((StartPos.Row + 1 >= EndPos.Row && EndPos.Row >= StartPos.Row - 1) &&
-             (StartPos.Col + 1 >= EndPos.Col && EndPos.Col >= StartPos.Col - 1))
-         {
-             return true;
-         }
+         return false;
      }
+     
+     if ((StartPos.Row + 1 >= EndPos.Row && EndPos.Row >= StartPos.Row - 1) &&
+         (StartPos.Col + 1 >= EndPos.Col && EndPos.Col >= StartPos.Col - 1))
+     {
+         return true;
+     }
+     
+     /*// Castle
+     if (StartPos.Row + 2 == EndPos.Row || StartPos.Row - 2 == EndPos.Row)
+     {
+         // Black side 
+         if (round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK)
+         {
+             if ()
+             p_PieceBoard[6][6] = p_PieceBoard[7][7];
+             p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
+             
+         }
+         // White Side 
+     }
+     */
      return false;
  }
 #pragma endregion
+
 #pragma region Rook
- bool possibleMoveRook(const PiecePosition StartPos, const PiecePosition EndPos)
+ static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
-     if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
+     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
+         EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
-         if (StartPos.Col == EndPos.Col || StartPos.Row == EndPos.Row)
-             return true;
+         return false;
+     }
+
+     if (StartPos.Col == EndPos.Col) 
+     {
+         for (int i = StartPos.Row - 1; i >= 0; i--)
+         { 
+             if (i == EndPos.Row) 
+             {
+                 if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
+                    return true;
+                 return true;
+             }
+             if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+            
+         }
+
+         for (int i = StartPos.Row + 1; i <= 7; i++)
+         {
+             if (i == EndPos.Row)
+             {
+                 if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
+                     return true;
+                 return true;
+             }
+             if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+         }
+     }
+
+     if (StartPos.Row == EndPos.Row)
+     {
+         for (int i = StartPos.Col - 1 ; i >= 0; i--)
+         {
+             if (i == EndPos.Col)
+             {
+                 if (p_PieceBoard[StartPos.Row][i] != PIECES_TYPE::EMPTY)
+                     return true;
+                 return true;
+             }
+             if (p_PieceBoard[StartPos.Row][i] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+         }
+
+         for (int i = StartPos.Col + 1; i <= 7; i++)
+         {
+             if (i == EndPos.Col)
+             {
+                 if (p_PieceBoard[StartPos.Row][i] != PIECES_TYPE::EMPTY)
+                     return true;
+                 return true;
+             }
+             if (p_PieceBoard[StartPos.Row][i] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+         }
      }
      return false;
- }
+ } 
 #pragma endregion
+
 #pragma region Bishop
- bool possibleMoveBishop(const PiecePosition StartPos, const PiecePosition EndPos)
+ static bool possibleMoveBishop(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
-     // first diagonal working 
-     if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
+     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
+         EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
-         for (int col = StartPos.Col , row = StartPos.Row ; col <= 7 && row <= 7 ; col++,row++) 
+         return false;
+     }
+
+     int _row = 0, _col = 0;
+
+     _row = StartPos.Row - 1;
+     _col = StartPos.Col - 1;
+     while (_row >= 0 && _col >= 0)
+     {
+         if (_row == EndPos.Row && _col == EndPos.Col)
          {
-             if (col == EndPos.Col && row == EndPos.Row)
-             {
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
                  return true;
-             }
+             return true;
          }
-         for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row >=0; col--, row--) 
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+             _row--; _col--;
+         
+     }
+
+     _row = StartPos.Row + 1;
+     _col = StartPos.Col + 1;
+     while (_row <= 7 && _col <= 7)
+     {
+         if (_row == EndPos.Row && _col == EndPos.Col)
          {
-             if (col == EndPos.Col && row == EndPos.Row)
-             {
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
                  return true;
-             }
+             return true;
          }
-         for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row <= 7; col--, row++) 
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
+             {
+                 break;
+             }
+             _row++; _col++;
+         
+     }
+
+     _row = StartPos.Row - 1;
+     _col = StartPos.Col + 1;
+     while (_row >= 0 && _col <= 7)
+     {
+         if (_row == EndPos.Row && _col == EndPos.Col)
          {
-             if (col == EndPos.Col && row == EndPos.Row)
-             {
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
                  return true;
-             }
+             return true;
          }
-         for (int col = StartPos.Col, row = StartPos.Row; col <= 7 && row >= 0; col++, row--) 
+         if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
          {
-             if (col == EndPos.Col && row == EndPos.Row)
-             {
-                 return true;
-             }
+             break;
          }
+         _row--; _col++;
+
+     }
+
+     _row = StartPos.Row + 1;
+     _col = StartPos.Col - 1;
+     while (_row <= 7 && _col >= 0)
+     {
+         if (_row == EndPos.Row && _col == EndPos.Col)
+         {
+             if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
+                 return true;
+             return true;
+         }
+         if (p_PieceBoard[_row][_col] != PIECES_TYPE::EMPTY)
+         {
+             break;
+         }
+         _row++; _col--;
+
      }
      return false;
  }
 #pragma endregion
 
 #pragma region Queen
- bool possibleMoveQueen(const PiecePosition StartPos, const PiecePosition EndPos)
+ bool possibleMoveQueen(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
      if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
      {
-      // Queen has the same movement as a bishop and rook combined
-         if (possibleMoveRook(StartPos, EndPos) || possibleMoveBishop(StartPos, EndPos))
+         if (possibleMoveRook(p_PieceBoard,StartPos, EndPos) || possibleMoveBishop(p_PieceBoard, StartPos, EndPos))
          {
              return true;
          }
@@ -212,34 +335,34 @@ bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     switch (_PIECETYPE)
     {
     case PIECES_TYPE::BLACK_PAWN:
-        _WrongMove = (possibleMoveBlackPawn(p_OldPosition, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveBlackPawn(p_PieceBoard, p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_PAWN:
-        _WrongMove = ((possibleMoveWhitePawn(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard,p_NewPosition))) ? true : false;
+        _WrongMove = ((possibleMoveWhitePawn(p_PieceBoard, p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard,p_NewPosition))) ? true : false;
         break; 
     case PIECES_TYPE::BLACK_KING:
-        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKing(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_KING:
-        _WrongMove = (possibleMoveKing(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveKing(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_ROOK:
-        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveRook(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_ROOK:
-        _WrongMove = (possibleMoveRook(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveRook(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_BISHOP:
-        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveBishop(p_PieceBoard, p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_BISHOP:
-        _WrongMove = (possibleMoveBishop(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveBishop(p_PieceBoard ,p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_QUEEN:
-        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveQueen(p_PieceBoard, p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::WHITE_QUEEN:
-        _WrongMove = (possibleMoveQueen(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
+        _WrongMove = (possibleMoveQueen(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
     case PIECES_TYPE::BLACK_KNIGHT:
         _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;

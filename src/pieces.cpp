@@ -89,5 +89,4 @@ namespace Candy{
              // std::cerr << "Cannot draw piece, texture is NULL" << std::endl;
          }
     }
-
 };

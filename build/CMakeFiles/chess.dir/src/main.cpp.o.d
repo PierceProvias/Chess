@@ -343,9 +343,6 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
   /Users/pierce/Documents/programming/projects/chess/src/../include/game.h \
   /Users/pierce/Documents/programming/projects/chess/include/board.h \
-  /Users/pierce/Documents/programming/projects/chess/include/SDL2/SDL_render.h \
-  /Users/pierce/Documents/programming/projects/chess/include/pieces_manager.h \
-  /Users/pierce/Documents/programming/projects/chess/include/pieces.h \
   /Users/pierce/Documents/programming/projects/chess/include/pieces_def.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/array \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/equal.h \
@@ -836,4 +833,6 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/reference_wrapper.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/weak_result_type.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/allocator_destructor.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
+  /Users/pierce/Documents/programming/projects/chess/include/pieces_manager.h \
+  /Users/pierce/Documents/programming/projects/chess/include/pieces.h

@@ -7,7 +7,6 @@
 
  
 namespace Candy{
-
     SDL_Renderer* Piece::s_Renderer = NULL;
     
     void Piece::setRenderer(SDL_Renderer* p_Renderer)
@@ -89,6 +88,4 @@ namespace Candy{
              // std::cerr << "Cannot draw piece, texture is NULL" << std::endl;
          }
     }
-
-
 };

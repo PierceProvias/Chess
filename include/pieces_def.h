@@ -40,3 +40,16 @@ namespace PIECES_TYPE {
 #define MAX_PIECES_SPACE 64
 #define MAX_PIECES_LINE 8
 #define MAX_DIFFERENT_TYPES_PIECES 16
+
+#include <array>
+class Player
+{
+public:
+    Player(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_BoardPiece) : BoardPieces(p_BoardPiece)
+    {}
+    ~Player(){} 
+    bool isSeleted;
+    int row;
+    int col;
+    std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> BoardPieces;
+};

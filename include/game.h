@@ -4,6 +4,7 @@
 #include "board.h"
 //#include "Pieces.hpp"
 #include "pieces_manager.h"
+
 namespace Candy
 {
     class Game

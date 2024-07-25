@@ -18,10 +18,10 @@ namespace Candy{
 
         void Log();
         void draw();
+
         static SDL_Renderer *s_Renderer;
         static void setRenderer(SDL_Renderer* p_Renderer); 
         static SDL_Renderer* GetRenderer();
-        
     private:
         SDL_Rect *m_PieceProperty;
         SDL_Texture* m_PieceTexture;

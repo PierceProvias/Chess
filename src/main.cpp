@@ -1,4 +1,3 @@
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_gamecontroller.h>
 #include <SDL2/SDL_image.h>
@@ -16,6 +15,7 @@ int main(int argc , char * argv[])
     init();
     GameLoop();
     close();
+
     return 0;
 }
 
@@ -40,4 +40,3 @@ inline void close()
     SDL_Quit();
     IMG_Quit();
 }
-

@@ -62,7 +62,7 @@ namespace Candy
                 {
                     case PIECES_TYPE::WHITE_KNIGHT:
                         addPiece(WHITE_KNIGHT_PATH,row,col);
-                    break;
+                        break;
                     case PIECES_TYPE::BLACK_PAWN:
                         addPiece(BLACK_PAWN_PATH,row,col);
                         break;
@@ -95,21 +95,30 @@ namespace Candy
                         break;
                     case PIECES_TYPE::WHITE_BISHOP:
                         addPiece(WHITE_BISHOP_PATH,row,col);
-                        break; // so this fixed
+                        break; 
                     case PIECES_TYPE::EMPTY:
                         m_DrawPieces[row][col].setTextureFromPath(EMPTY_PATH);
                         m_DrawPieces[row][col].setPosition((col * m_BoardPieceSize),
                             (row * m_BoardPieceSize));
                         break;
                     default:
-                        break;
+                    break;
                 }
-            }
+                }
         }
     }
     void PiecesManger::setSize(int p_PieceSize)
     {
-        m_BoardPieceSize = p_PieceSize;
+       m_BoardPieceSize = p_PieceSize;
+    }
+    Player PiecesManger::getPlayer()
+    {
+        Player _player(m_BoardPieces);
+        _player.isSeleted = m_PieceSelectState;
+        _player.row = m_LastPiece_Row;
+        _player.col = m_LastPiece_Col;
+
+        return _player;
     }
     void PiecesManger::drawPieces() 
     {
@@ -131,7 +140,6 @@ namespace Candy
         if (m_PieceSelectState)
         {
             m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setPosition(_X ,_Y );
-
         }
     }
 
@@ -142,14 +150,12 @@ namespace Candy
             m_PieceSelectState = true;
             m_LastPiece_Col = *p_MouseX/m_BoardPieceSize; // width
             m_LastPiece_Row = *p_MouseY/m_BoardPieceSize; // height
-
         }
         else if (!p_state)
         {
             m_PieceSelectState = false;
             int  _newCol= *p_MouseX / m_BoardPieceSize;
             int  _newRow = *p_MouseY / m_BoardPieceSize;
-            // TODO: handle range 0 -- 7 not outside of window
             if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)))
             {
                 m_BoardPieces[_newRow][_newCol] =  m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] ;
@@ -164,8 +170,6 @@ namespace Candy
             }
             CalculatePieces();
             //m_DrawPieces[m_LastPiece_Row][m_LastPiece_Col].setTextureFromPath(EMPTY_PATH);
-
         }
     }
 }
-

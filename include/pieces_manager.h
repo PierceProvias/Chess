@@ -5,6 +5,7 @@
 #include <array>
 
 namespace Candy {
+    
     class PiecesManger {
     public:
         PiecesManger(SDL_Renderer* p_Renderer, int BoardSize);
@@ -16,6 +17,8 @@ namespace Candy {
         void isPieceSelect(bool p_state,int* p_MouseX,int* p_MouseY);
 
         void setSize(int p_PieceSize);
+        Player getPlayer();
+
     private:
         void init();
         void initDefaultBoard();

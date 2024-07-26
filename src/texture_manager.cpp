@@ -19,6 +19,7 @@ namespace Candy{
     void TextureManger::Render(SDL_Renderer *p_Renderer, SDL_Texture *p_Texture,
              SDL_Rect* p_DsntRect)
     {
+        
         SDL_RenderCopy(p_Renderer,p_Texture,NULL,p_DsntRect);
     }
 

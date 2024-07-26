@@ -8,24 +8,26 @@
 namespace Candy{
     class Board {
     public:
+
         Board(int p_SizeBoard,SDL_Renderer* p_Renderer); 
         void drawBoard();
         void UpdatePlayer(Player p_Player); 
         int getPieceSize() const ;
-
     private:
+
         void resetBoardColor();
         void SetHighlight(unsigned const int row, unsigned const int col);
         void showHints(Player p_Player);
         void showPieceHightlight(unsigned const int row, unsigned const int col);
 
         void WhitePawnHint();
-        void BlackPawnHint(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard, const PiecePosition StartPos);
-        void KingHint(const PiecePosition StartPos);
-        void QueenHint(const PiecePosition StartPos);
-        void KnightHint(const PiecePosition StartPos);
-        void RookHint(const PiecePosition StartPos);
-        void BishopHint(const PiecePosition StartPos);
+        void BlackPawnHint();
+        void KingHint();
+        void QueenHint();
+        void KnightHint();
+        void RookHint();
+        void BishopHint();
+    private:
 
         SDL_Renderer* m_Renderer;
         std::array<int, MAX_PIECES_SPACE  > m_Pieces;

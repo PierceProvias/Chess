@@ -338,4 +338,6 @@ CMakeFiles/chess.dir/src/UI.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_timer.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_version.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
-  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h
+  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
+  /opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2/SDL_ttf.h \
+  /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h

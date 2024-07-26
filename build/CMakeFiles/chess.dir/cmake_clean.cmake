@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/chess.dir/src/game.cpp.o.d"
   "CMakeFiles/chess.dir/src/main.cpp.o"
   "CMakeFiles/chess.dir/src/main.cpp.o.d"
+  "CMakeFiles/chess.dir/src/menu.cpp.o"
+  "CMakeFiles/chess.dir/src/menu.cpp.o.d"
   "CMakeFiles/chess.dir/src/moves.cpp.o"
   "CMakeFiles/chess.dir/src/moves.cpp.o.d"
   "CMakeFiles/chess.dir/src/pawn.cpp.o"

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/pierce/Documents/programming/projects/chess/src/button.cpp" "CMakeFiles/chess.dir/src/button.cpp.o" "gcc" "CMakeFiles/chess.dir/src/button.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/game.cpp" "CMakeFiles/chess.dir/src/game.cpp.o" "gcc" "CMakeFiles/chess.dir/src/game.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/main.cpp" "CMakeFiles/chess.dir/src/main.cpp.o" "gcc" "CMakeFiles/chess.dir/src/main.cpp.o.d"
+  "/Users/pierce/Documents/programming/projects/chess/src/menu.cpp" "CMakeFiles/chess.dir/src/menu.cpp.o" "gcc" "CMakeFiles/chess.dir/src/menu.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/moves.cpp" "CMakeFiles/chess.dir/src/moves.cpp.o" "gcc" "CMakeFiles/chess.dir/src/moves.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/pawn.cpp" "CMakeFiles/chess.dir/src/pawn.cpp.o" "gcc" "CMakeFiles/chess.dir/src/pawn.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/pieces.cpp" "CMakeFiles/chess.dir/src/pieces.cpp.o" "gcc" "CMakeFiles/chess.dir/src/pieces.cpp.o.d"

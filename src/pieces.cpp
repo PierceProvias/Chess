@@ -5,9 +5,9 @@
 #include <iostream> 
 #include <SDL2/SDL_image.h>
 
- 
-namespace Candy{
 
+namespace Candy{
+    // static Renderer stuff  
     SDL_Renderer* Piece::s_Renderer = NULL;
     
     void Piece::setRenderer(SDL_Renderer* p_Renderer)
@@ -89,4 +89,6 @@ namespace Candy{
              // std::cerr << "Cannot draw piece, texture is NULL" << std::endl;
          }
     }
+
+
 };

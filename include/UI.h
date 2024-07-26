@@ -1,6 +1,6 @@
 #pragma once 
 #include <SDL2/SDL.h>
-
+#include <SDL2/SDL_ttf.h>
 namespace Candy {
 	class UI 
 	{
@@ -15,9 +15,10 @@ namespace Candy {
 
 		virtual void render() = 0;
 	protected:
+
 		SDL_Color UI_Color = {};
 		SDL_Rect UI_Box = {};
 		SDL_Renderer* UI_Renderer = NULL;
-		SDL_Texture* UI_ButtonTexture = NULL;
+		SDL_Texture* UI_Texture = NULL;
 	};
 };

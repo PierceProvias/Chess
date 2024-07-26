@@ -5,6 +5,7 @@
 #include <array>
 
 namespace Candy {
+
     class PiecesManger {
     public:
         PiecesManger(SDL_Renderer* p_Renderer, int BoardSize);
@@ -17,8 +18,10 @@ namespace Candy {
 
         void setSize(int p_PieceSize);
 
-        Player getPlayer() const ;
+        Player getPlayer() const;
+
     private:
+
         void init();
         void initDefaultBoard();
         void addPiece(const char* p_FilePath, int row, int col);

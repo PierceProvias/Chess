@@ -832,7 +832,7 @@ CMakeFiles/chess.dir/src/pieces_manager.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/allocator_destructor.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
   /Users/pierce/Documents/programming/projects/chess/include/board.h \
-  /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
+  /opt/homebrew/Cellar/sdl2_image/2.8.2_1/include/SDL2/SDL_image.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
   /Users/pierce/Documents/programming/projects/chess/include/moves_def.h \
   /Users/pierce/Documents/programming/projects/chess/src/../include/pieces_def.h \

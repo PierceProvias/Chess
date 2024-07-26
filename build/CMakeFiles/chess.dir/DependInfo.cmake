@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/pierce/Documents/programming/projects/chess/src/UI.cpp" "CMakeFiles/chess.dir/src/UI.cpp.o" "gcc" "CMakeFiles/chess.dir/src/UI.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/board.cpp" "CMakeFiles/chess.dir/src/board.cpp.o" "gcc" "CMakeFiles/chess.dir/src/board.cpp.o.d"
+  "/Users/pierce/Documents/programming/projects/chess/src/button.cpp" "CMakeFiles/chess.dir/src/button.cpp.o" "gcc" "CMakeFiles/chess.dir/src/button.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/game.cpp" "CMakeFiles/chess.dir/src/game.cpp.o" "gcc" "CMakeFiles/chess.dir/src/game.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/main.cpp" "CMakeFiles/chess.dir/src/main.cpp.o" "gcc" "CMakeFiles/chess.dir/src/main.cpp.o.d"
   "/Users/pierce/Documents/programming/projects/chess/src/moves.cpp" "CMakeFiles/chess.dir/src/moves.cpp.o" "gcc" "CMakeFiles/chess.dir/src/moves.cpp.o.d"

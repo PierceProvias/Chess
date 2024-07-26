@@ -219,6 +219,9 @@ SDL2_IMAGE_LIBRARY:FILEPATH=/opt/homebrew/lib/libSDL2_image.dylib
 //Path to a library.
 SDL2_LIBRARY:FILEPATH=/opt/homebrew/lib/libSDL2.dylib
 
+//Path to a library.
+SDL2_TTF_LIBRARY:FILEPATH=/opt/homebrew/lib/libSDL2_ttf.dylib
+
 //Value Computed by CMake
 chess_BINARY_DIR:STATIC=/Users/pierce/Documents/programming/projects/chess/build
 

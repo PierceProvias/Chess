@@ -1,5 +1,5 @@
 #define Red_COLOR 255,0,0,255
-#define Green_COLOR 0,255,0,200
+#define Green_COLOR 0,100,0,255
 #define DarkGreen_COLOR 1,50,32,255
 #define Blue_COLOR 0,0,255,255
 #define White_COLOR 255,255,255,255

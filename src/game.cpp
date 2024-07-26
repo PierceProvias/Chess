@@ -1,6 +1,5 @@
 #include "../include/game.h"
 #include <SDL2/SDL_mouse.h>
-#include <SDL2/SDL_timer.h>
                     
 namespace Candy{
     void Game::init()
@@ -71,16 +70,21 @@ namespace Candy{
     }
     void Game::render()
     {
+
         SDL_SetRenderDrawColor(m_Renderer,255,255,0,255);
         SDL_RenderClear(m_Renderer);
+
         m_Board->drawBoard();
         m_BoardPieces->drawPieces();
         SDL_RenderPresent(m_Renderer);
 
     }
 
+     
     void Game::getMousePosition(int* x, int* y)
     {
         SDL_GetMouseState(x,y);
     }
+
+
 };

@@ -339,7 +339,7 @@ CMakeFiles/chess.dir/src/main.cpp.o: \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_version.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_locale.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL_misc.h \
-  /opt/homebrew/Cellar/sdl2_image/2.8.2/include/SDL2/SDL_image.h \
+  /opt/homebrew/Cellar/sdl2_image/2.8.2_1/include/SDL2/SDL_image.h \
   /opt/homebrew/Cellar/sdl2/2.30.0/include/SDL2/SDL.h \
   /Users/pierce/Documents/programming/projects/chess/include/board.h \
   /Users/pierce/Documents/programming/projects/chess/include/pieces_def.h \

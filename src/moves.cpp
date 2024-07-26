@@ -1,12 +1,45 @@
 #include "../include/moves.h"
 #include "../include/pieces_def.h"
-#include <iostream> 
-
+#include <iostream> //debug
 static int round(int num)
 {
     return (num > 0) ? num : num * -1;
 }
 
+/*
+     // first diagonal working 
+     if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
+     {
+         for (int col = StartPos.Col , row = StartPos.Row ; col <= 7 && row <= 7 ; col++,row++) 
+         {
+             if (col == EndPos.Col && row == EndPos.Row)
+             {
+                 return true;
+             }
+         }
+         for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row >=0; col--, row--) 
+         {
+             if (col == EndPos.Col && row == EndPos.Row)
+             {
+                 return true;
+             }
+         }
+         for (int col = StartPos.Col, row = StartPos.Row; col >= 0 && row <= 7; col--, row++) 
+         {
+             if (col == EndPos.Col && row == EndPos.Row)
+             {
+                 return true;
+             }
+         }
+         for (int col = StartPos.Col, row = StartPos.Row; col <= 7 && row >= 0; col++, row--) 
+         {
+             if (col == EndPos.Col && row == EndPos.Row)
+             {
+                 return true;
+             }
+         }
+     }
+    */
 bool isBlack(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard , PiecePosition p_NewPosition)
 {
     return (0 > p_PieceBoard[p_NewPosition.Row][p_NewPosition.Col]) ? true : false;
@@ -20,6 +53,7 @@ bool isWhite(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_Pie
 #pragma region Pawn
 bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
+
     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
         EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
     {
@@ -48,6 +82,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 
  bool possibleMoveWhitePawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
+
      if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
          EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
@@ -87,6 +122,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
          return false;
      }
      
+
      if ((StartPos.Row + 1 >= EndPos.Row && EndPos.Row >= StartPos.Row - 1) &&
          (StartPos.Col + 1 >= EndPos.Col && EndPos.Col >= StartPos.Col - 1))
      {
@@ -114,6 +150,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 #pragma region Rook
  static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
+
      if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
          EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
@@ -189,6 +226,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 #pragma region Bishop
  static bool possibleMoveBishop(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
  {
+ 
      if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
          EndPos.Row < 0 || EndPos.Row > 7 || EndPos.Col < 0 || EndPos.Col > 7)
      {
@@ -326,10 +364,13 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
      }
      return false;
  }
+
+
 #pragma endregion
 
 bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard, PiecePosition p_OldPosition, PiecePosition p_NewPosition)
 {
+    
     bool _WrongMove = true;
     int _PIECETYPE = p_PieceBoard[p_OldPosition.Row][p_OldPosition.Col];
     switch (_PIECETYPE)
@@ -340,6 +381,7 @@ bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     case PIECES_TYPE::WHITE_PAWN:
         _WrongMove = ((possibleMoveWhitePawn(p_PieceBoard, p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard,p_NewPosition))) ? true : false;
         break; 
+
     case PIECES_TYPE::BLACK_KING:
         _WrongMove = (possibleMoveKing(p_PieceBoard,p_OldPosition, p_NewPosition)) && (!isBlack(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
@@ -373,3 +415,16 @@ bool Moves::VaildMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     }
     return _WrongMove;
 }
+
+
+/*
+bool Candy::Moves::isGameOver(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
+{
+    return false;
+}
+
+PieceColor Candy::Moves::getWinner(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
+{
+    return PieceColor();
+}
+*/

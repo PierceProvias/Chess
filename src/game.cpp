@@ -20,7 +20,7 @@ namespace Candy{
        m_Window = SDL_CreateWindow(p_Title, SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,
                                     p_Width, p_Height, SDL_WINDOW_SHOWN);
        m_Renderer = SDL_CreateRenderer(m_Window,-1, SDL_RENDERER_PRESENTVSYNC);
-       m_BoardPieces = new PiecesManger(m_Renderer,p_Height);
+       m_BoardPieces = new PiecesManager(m_Renderer,p_Height);
        m_Board = new Board(p_Height,m_Renderer);
        m_BoardPieces->setSize(m_Board->getPieceSize());
        updateMousePosition();

@@ -7,12 +7,12 @@
 
 namespace Candy {
     
-    class PiecesManger 
+    class PiecesManager 
     {
     public:
 
-        PiecesManger(SDL_Renderer* p_Renderer, int BoardSize);
-        ~PiecesManger(){}
+        PiecesManager(SDL_Renderer* p_Renderer, int BoardSize);
+        ~PiecesManager(){}
 
         void drawPieces();
         void resetPieces();

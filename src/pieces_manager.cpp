@@ -4,7 +4,7 @@
 #include <iostream>
 namespace Candy
 {
-    void PiecesManger::init()
+    void PiecesManager::init()
     {
         m_IsLastBlackMove = false;
         m_LastPiece_Col = -1;
@@ -17,7 +17,7 @@ namespace Candy
         }
     }
 
-    void PiecesManger::initDefaultBoard()
+    void PiecesManager::initDefaultBoard()
     {
         m_BoardPieces = {{
             {{ -5, -4, -3, -2, -1, -3, -4, -5 }},
@@ -31,12 +31,12 @@ namespace Candy
         }};
     }
 
-    bool PiecesManger::isBlack()
+    bool PiecesManager::isBlack()
     {
         return (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] < 0);
     }
     
-    PiecesManger::PiecesManger(SDL_Renderer* p_Renderer,int BoardSize)
+    PiecesManager::PiecesManager(SDL_Renderer* p_Renderer,int BoardSize)
           : m_Renderer(p_Renderer), m_BoardPieceSize(BoardSize/MAX_PIECES_LINE)
       {
            Piece::s_Renderer = m_Renderer;
@@ -49,7 +49,7 @@ namespace Candy
                     // m_DrawPieces[row][col].setOrgin(+m_BoardPieceSize/2,+m_BoardPieceSize/2);
           }
       
-    void PiecesManger::addPiece(const char* p_FilePath, int row, int col)
+    void PiecesManager::addPiece(const char* p_FilePath, int row, int col)
     {
 
         m_DrawPieces[row][col].setTextureFromPath(p_FilePath);
@@ -57,7 +57,7 @@ namespace Candy
                              (row * m_BoardPieceSize));
     }
 
-    void PiecesManger::CalculatePieces()
+    void PiecesManager::CalculatePieces()
     {
         for (int row = 0 ; row < MAX_PIECES_LINE ; row++)
         {
@@ -112,11 +112,11 @@ namespace Candy
             }
         }
     }
-    void PiecesManger::setSize(int p_PieceSize)
+    void PiecesManager::setSize(int p_PieceSize)
     {
        m_BoardPieceSize = p_PieceSize;
     }
-    std::string PiecesManger::GameOver()
+    std::string PiecesManager::GameOver()
     {
         bool WhiteKing = false;
         bool BlackKing = false;
@@ -146,12 +146,12 @@ namespace Candy
         return "";
     }
 
-    void PiecesManger::resetPieces()
+    void PiecesManager::resetPieces()
     {
         initDefaultBoard();
         CalculatePieces();
     }
-    Player PiecesManger::getPlayer() const 
+    Player PiecesManager::getPlayer() const 
     {
         Player _player(m_BoardPieces);
         _player.isSeleted = m_PieceSelectState;
@@ -160,7 +160,7 @@ namespace Candy
 
         return _player;
     }
-    void PiecesManger::drawPieces() 
+    void PiecesManager::drawPieces() 
     {
         for (int row = 0; row < MAX_PIECES_LINE ;row++)
         {
@@ -173,7 +173,7 @@ namespace Candy
         }
     }
 
-    void PiecesManger::updateBoardPieces(int* p_MouseX,int* p_MouseY)
+    void PiecesManager::updateBoardPieces(int* p_MouseX,int* p_MouseY)
     {
         int _X = *p_MouseX - m_BoardPieceSize / 2;
         int _Y = *p_MouseY - m_BoardPieceSize / 2;
@@ -183,7 +183,7 @@ namespace Candy
         }
     }
 
-    void PiecesManger::isPieceSelect(bool p_state,int* p_MouseX,int* p_MouseY)
+    void PiecesManager::isPieceSelect(bool p_state,int* p_MouseX,int* p_MouseY)
     {
         if (p_state)
         {
@@ -200,7 +200,7 @@ namespace Candy
 
             bool _tempColor = m_IsLastBlackMove;
 
-            if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)) && (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] != PIECES_TYPE::EMPTY))
+            if (Moves::ValidMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)) && (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] != PIECES_TYPE::EMPTY))
             {
                 if (m_IsLastBlackMove == isBlack())
                 {

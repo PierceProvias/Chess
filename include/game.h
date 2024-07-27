@@ -41,6 +41,6 @@ namespace Candy
         SDL_Renderer* m_Renderer;
         SDL_Event* m_Event;
         Board* m_Board;
-        PiecesManger* m_BoardPieces;
+        PiecesManager* m_BoardPieces;
     };
 };

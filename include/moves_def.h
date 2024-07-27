@@ -1,6 +1,7 @@
 #pragma once 
 
-class PiecePosition {
+class PiecePosition 
+{
 public:
 	PiecePosition(int row, int col) :Row{row }, Col{ col } {};
 	int Row, Col;

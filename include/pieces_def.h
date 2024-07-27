@@ -43,22 +43,18 @@ namespace PIECES_TYPE {
 #define MAX_DIFFERENT_TYPES_PIECES 16
 
 
-// PLayer class for handle the player information/state sharing between functions
+// PLayer class for handling the player information/state sharing between functions
 struct Player
 {
-    // Constructor 
     Player(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_BoardPiece) 
         : BoardPieces(p_BoardPiece) ,row (0),col(0),isSeleted(false)
     {}
     Player() : row(0), col(0), isSeleted(false){}
 
-    // Setter
     void setPosition(int row, int col) { this->row = row; this->col = col; }
     void setBoardPieces(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> BoardPieces) { this->BoardPieces = BoardPieces; }
     void setIsSelected(bool state) { isSeleted = state; }
     
-
-    // Public Variables
     bool isSeleted;
     int row;
     int col;

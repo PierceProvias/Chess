@@ -19,12 +19,14 @@ int main(int argc , char * argv[])
     return 0;
 }
 
-inline void init(){
+inline void init()
+{
     SDL_Init(SDL_INIT_VIDEO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG); 
     TTF_Init();
     gGame = new Candy::Game("Chess", g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
 }
+
 inline void GameLoop()
 {
     Candy::Menu menu(gGame->getRenderer());

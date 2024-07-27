@@ -1,6 +1,5 @@
 #pragma once 
 
-// Colors
 #define Red_COLOR 255,0,0,255
 #define Green_COLOR 0,100,0,255
 #define DarkGreen_COLOR 1,50,32,255

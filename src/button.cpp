@@ -31,19 +31,15 @@ Candy::Button::~Button()
 
 void Candy::Button::render()
 {
-	// Drawing the button Text
 	if (UI_Texture == NULL)
 	{
 		SDL_SetRenderDrawColor(UI_Renderer, UI_Color.r, UI_Color.g, UI_Color.b, UI_Color.a );
 		SDL_RenderFillRect(UI_Renderer, &UI_Box);
-		// Drawing the button Text
 		SDL_RenderCopy(UI_Renderer, m_ButtonTextTexture, NULL, &UI_Box);
 	}
 	else 
 	{
-		// Drawing the button box 
 		SDL_RenderCopy(UI_Renderer, UI_Texture, NULL, &UI_Box);
-		// Drawing the button Text
 		SDL_RenderCopy(UI_Renderer, m_ButtonTextTexture, NULL, &UI_Box);
 		std::cout << SDL_GetError() << std::endl;
 	}
@@ -104,8 +100,6 @@ void Candy::Button::setPosition(int x, int y)
 	UI_Box.x = x;
 	UI_Box.y = y;
 }
-
-
 
 void Candy::Button::createTextTexture(const char* p_FontPath,const char* p_Text)
 {

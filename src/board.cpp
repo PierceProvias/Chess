@@ -7,22 +7,23 @@ static bool round(int num)
 {
     return (num > 0);
 }
-// Moves calculation private functions
+
+// Move calculations
 namespace Candy 
 {
     void Board::WhitePawnHint()
     {
-        // first all bad move wrting and set to false
+        // Illegal moves display no hints
         if (m_Player.row < 1 || m_Player.row > 6 || m_Player.col < 0 || m_Player.col > 7)
         {
             return;
         }
-        // write the one step move for all
+        // Single step hint
         if (m_Player.BoardPieces[m_Player.row - 1][m_Player.col] == PIECES_TYPE::EMPTY && m_Player.row >= 0 && m_Player.row <= 7)
         {
             SetHighlight(m_Player.row - 1, m_Player.col);
         }
-        // write the two step move for all
+        // Double step hint
         if (m_Player.row == 6 && m_Player.row >= 0 && m_Player.row <= 7)
         {
             if (m_Player.BoardPieces[m_Player.row - 1][m_Player.col] == PIECES_TYPE::EMPTY)
@@ -33,8 +34,9 @@ namespace Candy
                 }
             }
         }
-        // write to capture diagonal
-        // FIRST  diagonal
+
+
+        // First diagonal (Pawn has right to capture)
         if (m_Player.col >= 1)
         {
             if ((m_Player.BoardPieces[m_Player.row - 1][m_Player.col - 1] != PIECES_TYPE::EMPTY))
@@ -45,7 +47,7 @@ namespace Candy
                 }
             }
         }
-        // SECOND diagonal
+        // Second Diagonal (Pawn has right to capture)
         if (m_Player.col <= 6)
         {
             if ((m_Player.BoardPieces[m_Player.row - 1][m_Player.col + 1] != PIECES_TYPE::EMPTY))
@@ -56,20 +58,20 @@ namespace Candy
                 }
             }
         }
-    } // this Working alright
-    void Board::BlackPawnHint() // some range after 7 row fix later
+    } 
+    void Board::BlackPawnHint() 
     {
-        // first all bad move wrting and set to false
+        // Illegal moves display no hints
         if (m_Player.row < 0 || m_Player.row > 7 || m_Player.col < 0 || m_Player.col > 7)
         {
             return;
         }
-        // write the one step move for all
+        // Single pawn step hint
         if (m_Player.BoardPieces[m_Player.row + 1][m_Player.col] == PIECES_TYPE::EMPTY && m_Player.row >= 0 && m_Player.row <= 7)
         {
             SetHighlight(m_Player.row + 1, m_Player.col);
         }
-        // write the two step move for all
+        // Two step pawn hint
         if (m_Player.row == 1 && m_Player.row >= 0 && m_Player.row <= 7)
         {
             if (m_Player.BoardPieces[m_Player.row + 1][m_Player.col] == PIECES_TYPE::EMPTY)
@@ -80,8 +82,8 @@ namespace Candy
                 }
             }
         }
-        // write to capture diagonal
-        // FIRST  diagonal
+        
+        // First diagonal (Pawn has right to capture)
         if (m_Player.col >= 1)
         {
             if ((m_Player.BoardPieces[m_Player.row + 1][m_Player.col - 1] != PIECES_TYPE::EMPTY))
@@ -92,8 +94,8 @@ namespace Candy
                 }
             }
         }
-        // SECOND diagonal
-        if (m_Player.col <= 6) //  dont know why it is not working fix it later or may be behind the recording and check the answer or what in source code
+        // Second diagonal (Pawn has right to capture)
+        if (m_Player.col <= 6) 
         {
             if ((m_Player.BoardPieces[m_Player.row + 1][m_Player.col + 1] != PIECES_TYPE::EMPTY))
             {
@@ -131,7 +133,7 @@ namespace Candy
                 }
             }
         }
-    } // this is working
+    } 
     void Board::QueenHint()
     {
         BishopHint();
@@ -226,16 +228,16 @@ namespace Candy
             }
         }
     }
-    void Board::RookHint() // half fix
+    void Board::RookHint() 
     {
-        // first all bad move wrting and set to false
+        // Illegal moves display no hints
         if (m_Player.row < 0 || m_Player.row > 7 || m_Player.col < 0 || m_Player.col > 7)
         {
             return;
         }
         int pieceColor = round(m_Player.BoardPieces[m_Player.row][m_Player.col]);
 
-        // write all from position of rook up with row
+        // Hints are shown for all legal moves in the forward row
         for (int i = m_Player.row - 1; i >= 0; i--)
         {
             if (m_Player.BoardPieces[i][m_Player.col] == PIECES_TYPE::EMPTY)
@@ -252,7 +254,7 @@ namespace Candy
                 break;
             }
         }
-        // write all from position of rook down with row
+        // Hints are shown for all legal moves in the backward row
         for (int i = m_Player.row + 1; i <= 7; i++)
         {
             if (m_Player.BoardPieces[i][m_Player.col] == PIECES_TYPE::EMPTY)
@@ -270,7 +272,7 @@ namespace Candy
             }
         }
 
-        // write all from position of rook right with col
+        // Hints are shown for all legal moves in the column left of current column
 
         for (int i = m_Player.col - 1; i >= 0; i--)
         {
@@ -288,7 +290,7 @@ namespace Candy
                 break;
             }
         }
-        // write all from position of rook right with col
+        // Hints are shown for all legal moves in the column right of current column
         for (int i = m_Player.col + 1; i <= 7; i++)
         {
             if (m_Player.BoardPieces[m_Player.row][i] == PIECES_TYPE::EMPTY)
@@ -308,15 +310,15 @@ namespace Candy
     }
     void Board::BishopHint()
     {
-        // first all bad move wrting and set to false
+        // Illegal moves do not display hints
         if (m_Player.row < 0 || m_Player.row > 7 || m_Player.col < 0 || m_Player.col > 7)
         {
             return;
         }
         int pieceColor = round(m_Player.BoardPieces[m_Player.row][m_Player.col]);
-        // local declaration of row and col
+
         int _row = 0, _col = 0;
-        // Diagonal 1 upper
+        // Hints for first diagonal forward
         _row = m_Player.row - 1;
         _col = m_Player.col - 1;
         while (_row >= 0 && _col >= 0)
@@ -336,7 +338,7 @@ namespace Candy
             _row--;
             _col--;
         }
-        // Diagonal 1 lower
+        // Hints for first diagonal backward
         _row = m_Player.row + 1;
         _col = m_Player.col + 1;
         while (_row <= 7 && _col <= 7)
@@ -356,8 +358,8 @@ namespace Candy
             _row++;
             _col++;
         }
-        // first diagonal is working 😁😁
-        // Diagonal 2 upper
+
+        // Hints for second diagonal forward
         _row = m_Player.row - 1;
         _col = m_Player.col + 1;
         while (_row >= 0 && _col <= 7)
@@ -377,7 +379,7 @@ namespace Candy
             _row--;
             _col++;
         }
-        // Diagonal 2 lower
+        // Hints for second diagonal backward
         _row = m_Player.row + 1;
         _col = m_Player.col - 1;
         while (_row <= 7 && _col >= 0)
@@ -402,8 +404,6 @@ namespace Candy
 
 namespace Candy
 {
-
-    // constructor
     Board::Board(int p_SizeBoard, SDL_Renderer* p_Renderer)
         : m_BoardSize(p_SizeBoard), m_Renderer(p_Renderer)
     {
@@ -411,7 +411,6 @@ namespace Candy
         resetBoardColor();
     }
 
-    // reseting color to default
     void Board::resetBoardColor()
     {
         for (int row = 0; row < MAX_PIECES_LINE; row++)
@@ -430,7 +429,7 @@ namespace Candy
         }
     }
 
-    // this will decided on which tile color should be
+    // Decides on color of tile
     void Board::SetHighlight(unsigned const int row, unsigned const int col)
     {
         if (((row + col) % 2) == 0)
@@ -443,7 +442,6 @@ namespace Candy
         }
     }
 
-    // private functions that allow to calculate pieces highlight for possible moves
     void Board::showHints(Player p_Player)
     {
         int _pieceType = p_Player.BoardPieces[p_Player.row][p_Player.col];
@@ -533,5 +531,4 @@ namespace Candy
     {
         return m_PiecesSize;
     }
-
 };

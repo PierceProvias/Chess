@@ -7,7 +7,7 @@
 
 
 namespace Candy{
-    // static Renderer stuff  
+
     SDL_Renderer* Piece::s_Renderer = NULL;
     
     void Piece::setRenderer(SDL_Renderer* p_Renderer)
@@ -28,8 +28,8 @@ namespace Candy{
      }
      Piece::Piece(const char* p_FilePath,int p_PieceSize) 
      {
-         initVariable();
-         init(p_FilePath,p_PieceSize);
+        initVariable();
+        init(p_FilePath,p_PieceSize);
      }
     void Piece::init(const char* p_FilePath,int p_PieceSize)
     {
@@ -89,6 +89,4 @@ namespace Candy{
              // std::cerr << "Cannot draw piece, texture is NULL" << std::endl;
          }
     }
-
-
 };

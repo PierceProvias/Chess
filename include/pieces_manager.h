@@ -4,8 +4,11 @@
 #include "pieces.h"
 #include "board.h"
 #include <array>
+
 namespace Candy {
-    class PiecesManger {
+    
+    class PiecesManger 
+    {
     public:
 
         PiecesManger(SDL_Renderer* p_Renderer, int BoardSize);
@@ -17,22 +20,18 @@ namespace Candy {
         void isPieceSelect(bool p_state,int* p_MouseX,int* p_MouseY);
 
     public:
-
         void setSize(int p_PieceSize);
         std::string GameOver();
         Player getPlayer() const ;
 
     private:
-
         void init();
         void initDefaultBoard();
         bool isBlack();
         void addPiece(const char* p_FilePath, int row, int col);
         void CalculatePieces();
 
-
     private:
-
         SDL_Renderer* m_Renderer;
         int m_BoardPieceSize;
         bool m_PieceSelectState;

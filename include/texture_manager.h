@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 
 namespace Candy{
+    
     class TextureManger
     {
     public:

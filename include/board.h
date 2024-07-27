@@ -7,12 +7,14 @@
 
 namespace Candy{
     class Board {
+        
     public:
 
         Board(int p_SizeBoard,SDL_Renderer* p_Renderer); 
         void drawBoard();
         void UpdatePlayer(Player p_Player); 
         int getPieceSize() const ;
+
     private:
 
         void resetBoardColor();
@@ -27,6 +29,7 @@ namespace Candy{
         void KnightHint();
         void RookHint();
         void BishopHint();
+
     private:
 
         SDL_Renderer* m_Renderer;

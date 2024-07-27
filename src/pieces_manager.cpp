@@ -67,49 +67,49 @@ namespace Candy
                 {
                     case PIECES_TYPE::WHITE_KNIGHT:
                         addPiece(WHITE_KNIGHT_PATH,row,col);
-                    break;
+                        break;
                     case PIECES_TYPE::BLACK_PAWN:
                         addPiece(BLACK_PAWN_PATH,row,col);
-                    break;
+                        break;
                     case PIECES_TYPE::WHITE_PAWN:
                         addPiece(WHITE_PAWN_PATH,row,col);
-                     break;
+                        break;
                     case PIECES_TYPE::WHITE_ROOK:
                         addPiece(WHITE_ROOK_PATH,row,col);
-                     break;
+                        break;
                     case PIECES_TYPE::BLACK_ROOK:
                          addPiece(BLACK_ROOK_PATH,row,col);
-                     break;
-                     case PIECES_TYPE::BLACK_BISHOP:
-                         addPiece(BLACK_BISHOP_PATH,row,col);
-                     break;
-                     case PIECES_TYPE::BLACK_KNIGHT:
-                          addPiece(BLACK_KNIGHT_PATH,row,col);
-                     break;
-                     case PIECES_TYPE::BLACK_QUEEN:
-                          addPiece(BLACK_QUEEN_PATH,row,col);
-                     break;
-                     case PIECES_TYPE::BLACK_KING:
-                         addPiece(BLACK_KING_PATH,row,col);
-                      break;
-                      case PIECES_TYPE::WHITE_KING:
-                         addPiece(WHITE_KING_PATH,row,col);
-                      break;
-                      case PIECES_TYPE::WHITE_QUEEN:
-                         addPiece(WHITE_QUEEN_PATH,row,col);
-                      break;
-                      case PIECES_TYPE::WHITE_BISHOP:
-                         addPiece(WHITE_BISHOP_PATH,row,col);
-                         break; // so this fixed
-                      case PIECES_TYPE::EMPTY:
-                          m_DrawPieces[row][col].setTextureFromPath(EMPTY_PATH);
-                          m_DrawPieces[row][col].setPosition((col * m_BoardPieceSize),
-                              (row * m_BoardPieceSize));
-                     break;
-                     default:
+                        break;
+                    case PIECES_TYPE::BLACK_BISHOP:
+                        addPiece(BLACK_BISHOP_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::BLACK_KNIGHT:
+                        addPiece(BLACK_KNIGHT_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::BLACK_QUEEN:
+                        addPiece(BLACK_QUEEN_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::BLACK_KING:
+                        addPiece(BLACK_KING_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::WHITE_KING:
+                        addPiece(WHITE_KING_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::WHITE_QUEEN:
+                        addPiece(WHITE_QUEEN_PATH,row,col);
+                        break;
+                    case PIECES_TYPE::WHITE_BISHOP:
+                        addPiece(WHITE_BISHOP_PATH,row,col);
+                        break; 
+                    case PIECES_TYPE::EMPTY:
+                        m_DrawPieces[row][col].setTextureFromPath(EMPTY_PATH);
+                        m_DrawPieces[row][col].setPosition((col * m_BoardPieceSize),
+                            (row * m_BoardPieceSize));
+                        break;
+                    default:
                         break;
                 }
-                }
+            }
         }
     }
     void PiecesManger::setSize(int p_PieceSize)
@@ -200,7 +200,6 @@ namespace Candy
 
             bool _tempColor = m_IsLastBlackMove;
 
-            // fix error regarding empty of the piece
             if (Moves::VaildMove(m_BoardPieces, PiecePosition(m_LastPiece_Row, m_LastPiece_Col), PiecePosition(_newRow, _newCol)) && (m_BoardPieces[m_LastPiece_Row][m_LastPiece_Col] != PIECES_TYPE::EMPTY))
             {
                 if (m_IsLastBlackMove == isBlack())
@@ -224,7 +223,6 @@ namespace Candy
             m_IsLastBlackMove = _tempColor;
             CalculatePieces();
             GameOver();
-
         }
     }
 }

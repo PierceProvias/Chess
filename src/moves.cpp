@@ -1,6 +1,8 @@
 #include "../include/moves.h"
 #include "../include/pieces_def.h"
 #include <iostream> 
+#include "../include/pieces_manager.h"
+
 static int round(int num)
 {
     return (num > 0) ? num : num * -1;
@@ -87,7 +89,6 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 #pragma endregion
 
 #pragma region King
-
 // TODO: Castling
 bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
@@ -105,20 +106,46 @@ bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
         return true;
     }
     
-    /*// Castle
-    if (StartPos.Row + 2 == EndPos.Row || StartPos.Row - 2 == EndPos.Row)
+    // Castle
+    if (StartPos.Col + 2 == EndPos.Col || StartPos.Col - 2 == EndPos.Col)
     {
-        // Black side 
-        if (round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK)
-        {
-            if ()
-            p_PieceBoard[6][6] = p_PieceBoard[7][7];
+        
+          if(round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK)
+          {
+            std::cout << "White rook" << std::endl;
+            p_PieceBoard[7][5] = p_PieceBoard[7][7];
             p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
+            if(p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK && p_PieceBoard[7][7] == PIECES_TYPE::EMPTY)
+            {
+                std::cout << "[7][5] == White rook" << std::endl;
+                //addPiece(WHITE_ROOK_PATH,7,5);
+                return true;
+            }
+            return true;
+        }
+
+
+        p_PieceBoard[7][5] = p_PieceBoard[7][7];
+        // White side
+        /*
+        
+        if (round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK && 
+            p_PieceBoard[7][5] == PIECES_TYPE::EMPTY && 
+            p_PieceBoard[7][6] == PIECES_TYPE::EMPTY)
+        {
+            
+            p_PieceBoard[7][5] = p_PieceBoard[7][7];
+            p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
+            //p_PieceBoard[7][6] = p_PieceBoard[7][4];
+            //p_PieceBoard[7][4] = PIECES_TYPE::EMPTY;
+            return true;
             
         }
-        // White Side 
+        */ 
+        return true;
+        // Black Side 
     }
-    */
+    
     return false;
 }
 #pragma endregion
@@ -141,7 +168,7 @@ static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
             {
                 if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
                 return true;
-                return true;
+
             }
             if (p_PieceBoard[i][StartPos.Col] != PIECES_TYPE::EMPTY)
             {

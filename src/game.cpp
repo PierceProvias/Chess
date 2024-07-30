@@ -1,4 +1,7 @@
 #include "../include/game.h"
+
+#include <SDL_video.h>
+#include <SDL_render.h>
 #include <iostream> 
 
 namespace Candy{
@@ -16,14 +19,23 @@ namespace Candy{
 
     Game::Game(const char* p_Title, int p_Width,int p_Height)
     {
-       init();
-       m_Window = SDL_CreateWindow(p_Title, SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,
-                                    p_Width, p_Height, SDL_WINDOW_SHOWN);
-       m_Renderer = SDL_CreateRenderer(m_Window,-1, SDL_RENDERER_PRESENTVSYNC);
-       m_BoardPieces = new PiecesManager(m_Renderer,p_Height);
-       m_Board = new Board(p_Height,m_Renderer);
-       m_BoardPieces->setSize(m_Board->getPieceSize());
-       updateMousePosition();
+        init();
+        m_Window = SDL_CreateWindow(p_Title, SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,
+                                        p_Width, p_Height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
+       // SDL_SetWindowResizable(m_Window, SDL_TRUE);
+        m_Renderer = SDL_CreateRenderer(m_Window,-1, SDL_RENDERER_PRESENTVSYNC );
+        SDL_Rect viewport;
+        
+        viewport.x = 0;
+        viewport.y = 0;
+        viewport.w = 600;
+        viewport.h = 600;
+
+        //SDL_RenderSetViewport(m_Renderer, &viewport);
+        m_BoardPieces = new PiecesManager(m_Renderer,p_Height);
+        m_Board = new Board(p_Height,m_Renderer);
+        m_BoardPieces->setSize(m_Board->getPieceSize());
+        updateMousePosition();
     }
     Game::~Game()
     {

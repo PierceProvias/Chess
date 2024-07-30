@@ -23,12 +23,12 @@ namespace Candy {
         void setSize(int p_PieceSize);
         std::string GameOver();
         Player getPlayer() const ;
+        void addPiece(const char* p_FilePath, int row, int col);
 
     private:
         void init();
         void initDefaultBoard();
         bool isBlack();
-        void addPiece(const char* p_FilePath, int row, int col);
         void CalculatePieces();
 
     private:

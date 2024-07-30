@@ -9,8 +9,10 @@ static bool round(int num)
 }
 
 // Move calculations
+
 namespace Candy 
 {
+    #pragma region Pawn
     void Board::WhitePawnHint()
     {
         // Illegal moves display no hints
@@ -106,6 +108,9 @@ namespace Candy
             }
         }
     }
+    #pragma endregion
+
+    #pragma region King
     void Board::KingHint()
     {
         int row = m_Player.row, col = m_Player.col;
@@ -134,11 +139,17 @@ namespace Candy
             }
         }
     } 
+    #pragma endregion
+
+    #pragma region Queen
     void Board::QueenHint()
     {
         BishopHint();
         RookHint();
     }
+    #pragma endregion
+
+    #pragma region Knight
     void Board::KnightHint()
     {
         if (0 <= m_Player.row && m_Player.row <= 7 || 0 <= m_Player.col && m_Player.col <= 7)
@@ -228,6 +239,9 @@ namespace Candy
             }
         }
     }
+    #pragma endregion
+
+    #pragma region Rook
     void Board::RookHint() 
     {
         // Illegal moves display no hints
@@ -308,6 +322,9 @@ namespace Candy
             }
         }
     }
+    #pragma endregion
+
+    #pragma region Bishop
     void Board::BishopHint()
     {
         // Illegal moves do not display hints
@@ -400,6 +417,7 @@ namespace Candy
             _col--;
         }
     }
+    #pragma endregion
 };
 
 namespace Candy
@@ -498,7 +516,7 @@ namespace Candy
         if (p_Player.isSeleted == true)
         {
             showHints(p_Player);
-            m_BoardColor[p_Player.row][p_Player.col] = { Red_COLOR }; // i like some like this
+            m_BoardColor[p_Player.row][p_Player.col] = { Red_COLOR }; 
         }
         else
         {

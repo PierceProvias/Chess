@@ -17,6 +17,7 @@ static bool isWhite(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE
     return (0 < p_PieceBoard[p_NewPosition.Row][p_NewPosition.Col]) ? true : false;
 }
 
+
 // TODO: add promotion
 #pragma region Pawn
 bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
@@ -77,8 +78,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
     // Capture piece diagonally
     else if ((StartPos.Col - 1 == EndPos.Col || StartPos.Col + 1 == EndPos.Col) && (StartPos.Row - 1 == EndPos.Row))
     {
-        
-        
+
         if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
             return true;
         
@@ -90,7 +90,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 
 #pragma region King
 // TODO: Castling
-bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
+static bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
     // Illegal moves
     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7
@@ -109,43 +109,26 @@ bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     // Castle
     if (StartPos.Col + 2 == EndPos.Col || StartPos.Col - 2 == EndPos.Col)
     {
-        
-          if(round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK)
-          {
-            std::cout << "White rook" << std::endl;
-            p_PieceBoard[7][5] = p_PieceBoard[7][7];
-            p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
-            if(p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK && p_PieceBoard[7][7] == PIECES_TYPE::EMPTY)
-            {
-                std::cout << "[7][5] == White rook" << std::endl;
-                //addPiece(WHITE_ROOK_PATH,7,5);
-                return true;
-            }
-            return true;
-        }
-
-
-        p_PieceBoard[7][5] = p_PieceBoard[7][7];
-        // White side
-        /*
-        
-        if (round(p_PieceBoard[7][7]) == PIECES_TYPE::WHITE_ROOK && 
-            p_PieceBoard[7][5] == PIECES_TYPE::EMPTY && 
-            p_PieceBoard[7][6] == PIECES_TYPE::EMPTY)
+        if(p_PieceBoard[7][7] == PIECES_TYPE::WHITE_ROOK)
         {
-            
+            //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+
+             //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+            //return true;
             p_PieceBoard[7][5] = p_PieceBoard[7][7];
             p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
-            //p_PieceBoard[7][6] = p_PieceBoard[7][4];
-            //p_PieceBoard[7][4] = PIECES_TYPE::EMPTY;
-            return true;
+            p_PieceBoard[7][6] = PIECES_TYPE::WHITE_KING;
+            if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING && p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK)
+            {
+                std::cout << "White rook \n";
+                return Moves::isCastled();
+
+            }
             
         }
-        */ 
-        return true;
-        // Black Side 
-    }
-    
+       //Moves::Castle(p_PieceBoard, StartPos, EndPos);
+
+    }   
     return false;
 }
 #pragma endregion
@@ -222,6 +205,13 @@ static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
             }
         }
     }
+    
+    if(Moves::isCastled() && StartPos.Col -2 == EndPos.Col && StartPos.Row == EndPos.Row)
+    {
+        std::cout << "White King Castled" << std::endl;
+        return true;
+    }
+    
     return false;
 } 
 #pragma endregion
@@ -416,8 +406,29 @@ bool Moves::ValidMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     case PIECES_TYPE::WHITE_KNIGHT:
         _WrongMove = (possibleMoveKnight(p_OldPosition, p_NewPosition)) && (!isWhite(p_PieceBoard, p_NewPosition)) ? true : false;
         break;
+    
     }
     return _WrongMove;
+}
+
+bool Moves::Castle(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard, PiecePosition p_OldPosition, PiecePosition p_NewPosition)
+{
+    
+    if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING)
+    return false;
+    
+}
+
+bool Moves::isCastled()
+{
+    std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard;
+    if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING )
+    {
+        p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
+        std::cout << "Is castled\n";
+        return true;
+    }
+    return false;
 }
 
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28.3)
+cmake_minimum_required(VERSION 3.10)
 project(chess
     VERSION 1.0.0
     LANGUAGES C CXX
@@ -28,7 +28,7 @@ message(STATUS "SDL2_DIR: ${SDL2_DIR}")
 message(STATUS "SDL2_IMAGE_DIR: ${SDL2_IMAGE_DIR}")
 message(STATUS "SDL2_TTF_DIR: ${SDL2_TTF_DIR}")
 
-# Manually specify the include directories and libraries
+    # Manually specify the include directories and libraries
 include_directories(include)
 include_directories(${SDL2_DIR}/include/SDL2)
 include_directories(${SDL2_IMAGE_DIR}/include)

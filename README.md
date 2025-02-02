@@ -48,7 +48,8 @@ This is a simple chess game built using SDL2 and CMake for compilation. It allow
     cmake -S .. -B .
     make
 
-## Play chess and have fun
-
-```bash
+4. Play chess
+    ```bash
     ./chess
+
+

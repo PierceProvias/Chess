@@ -2,7 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <cstddef>
 
-namespace Candy{
+namespace Chess{
 
     SDL_Texture* TextureManger::GetTexture(SDL_Renderer* p_Renderer,const char *p_FilePath)
     {

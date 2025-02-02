@@ -4,7 +4,7 @@
 const int g_WINDOW_WIDTH  = 600;
 const int g_WINDOW_HEIGHT = 600;
 
-static Candy::Game* gGame = nullptr;
+static Chess::Game* gGame = nullptr;
 
 inline void init();
 inline void GameLoop();
@@ -24,12 +24,12 @@ inline void init()
     SDL_Init(SDL_INIT_VIDEO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG); 
     TTF_Init();
-    gGame = new Candy::Game("Chess", g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
+    gGame = new Chess::Game("Chess", g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
 }
 
 inline void GameLoop()
 {
-    Candy::Menu menu(gGame->getRenderer());
+    Chess::Menu menu(gGame->getRenderer());
     bool MenuRunning = true;
     while (MenuRunning)
     {

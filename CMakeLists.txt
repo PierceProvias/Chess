@@ -1,8 +1,12 @@
-cmake_minimum_required(VERSION 3.10)
-project(chess)
+cmake_minimum_required(VERSION 3.28.3)
+project(chess
+    VERSION 1.0.0
+    LANGUAGES C CXX
+)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD          11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS       OFF)
 
 if(WIN32)
     message(STATUS "Operating system: Windows")
@@ -32,40 +36,59 @@ include_directories(${SDL2_TTF_DIR}/include)
 
 file(GLOB SOURCES "src/*.cpp")
 
-# Find SDL2 and SDL2_image libraries
+
+
 find_library(SDL2_LIBRARY NAMES SDL2 libSDL2 PATHS ${SDL2_DIR}/lib)
 find_library(SDL2_IMAGE_LIBRARY NAMES SDL2_image libSDL2_image PATHS ${SDL2_IMAGE_DIR}/lib)
 find_library(SDL2_TTF_LIBRARY NAMES SDL2_ttf libSDL2_ttf PATHS ${SDL2_TTF_DIR}/lib)
 
-if(NOT SDL2_LIBRARY)
-    message(FATAL_ERROR "SDL2 not found!")
-endif()
-
-if(NOT SDL2_IMAGE_LIBRARY)
-    message(FATAL_ERROR "SDL2_image not found!")
-endif()
-
-if(NOT SDL2_TTF_LIBRARY)
-    message(FATAL_ERROR "SDL2_ttf not found!")
-endif()
-
 # Include FetchContent module
 include(FetchContent)
+set(SDL2_LIB_NAME SDL2)
+set(SDL2_IMAGE_LIB_NAME SDL2_IMAGE)
+set(SDL2_TTF_LIB_NAME SDL2_TTF)
 
-# Fetch SDL2 if not found
-find_package(SDL2 QUIET)
-
-if(NOT SDL2_FOUND)
-    message(STATUS "SDL2 not found, fetching it using FetchContent")
+if(NOT SDL2_LIB_NAME)
+    message(STATUS "SDL2 not found, fetching it ...")
     FetchContent_Declare(
-        SDL2
+        ${SDL2_LIB_NAME}
         GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-        GIT_TAG release-2.28.1  # Use the appropriate tag or branch
+        GIT_TAG release-2.30.0
+        GIT_SHALLOW FALSE
     )
-    FetchContent_MakeAvailable(SDL2)
+    FetchContent_MakeAvailable(${SDL_LIB_NAME})
 else()
     message(STATUS "SDL2 found")
 endif()
+
+
+if(NOT SDL2_IMAGE_LIB_NAME)
+    message(STATUS "SDL2_IMAGE not found, fetching it ...")
+    FetchContent_Declare(
+        ${SDL2_IMAGE_LIB_NAME}
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_image
+        GIT_TAG release-2.8.2
+        GIT_SHALLOW FALSE
+    )
+    FetchContent_MakeAvailable(${SDL_IMAGE_LIB_NAME})
+else()
+    message(STATUS "SDL2_IMAGE found")
+endif()
+
+
+if(NOT SDL2_TTF_LIB_NAME)
+    message(STATUS "SDL2_TTF not found, fetching it ...")
+    FetchContent_Declare(
+        ${SDL2_TTF_LIB_NAME}
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf
+        GIT_TAG release-2.22.0
+        GIT_SHALLOW FALSE
+    )
+    FetchContent_MakeAvailable(${SDL2_TTF_LIB_NAME})
+else()
+    message(STATUS "SDL2_TTF found")
+endif()
+
 
 # Add the executable and link libraries
 add_executable(${PROJECT_NAME} ${SOURCES})

@@ -4,7 +4,7 @@
 #include "menu_def.h"
 #include <vector>
 
-namespace Candy 
+namespace Chess 
 {
 	class Menu
 	{

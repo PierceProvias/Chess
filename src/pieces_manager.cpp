@@ -2,7 +2,7 @@
 #include "../include/pieces_def.h"
 #include "../include/moves.h"
 #include <iostream>
-namespace Candy
+namespace Chess
 {
     void PiecesManager::init()
     {

@@ -118,6 +118,7 @@ static bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
             p_PieceBoard[7][5] = p_PieceBoard[7][7];
             p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
             p_PieceBoard[7][6] = PIECES_TYPE::WHITE_KING;
+            p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
             if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING && p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK)
             {
                 std::cout << "White rook \n";
@@ -425,6 +426,7 @@ bool Moves::isCastled()
     if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING )
     {
         p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
+
         std::cout << "Is castled\n";
         return true;
     }
@@ -433,12 +435,12 @@ bool Moves::isCastled()
 
 
 /*
-bool Candy::Moves::isGameOver(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
+bool Chess::Moves::isGameOver(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
 {
     return false;
 }
 
-PieceColor Candy::Moves::getWinner(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
+PieceColor Chess::Moves::getWinner(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard)
 {
     return PieceColor();
 }

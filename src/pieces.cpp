@@ -6,7 +6,7 @@
 #include <SDL2/SDL_image.h>
 
 
-namespace Candy{
+namespace Chess{
 
     SDL_Renderer* Piece::s_Renderer = NULL;
     

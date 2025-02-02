@@ -6,7 +6,7 @@
 #include "board.h"
 #include "pieces_manager.h"
 #include "button.h"
-namespace Candy
+namespace Chess
 {
     class Game
     {

@@ -10,7 +10,7 @@ static bool round(int num)
 
 // Move calculations
 
-namespace Candy 
+namespace Chess 
 {
     #pragma region Pawn
     void Board::WhitePawnHint()
@@ -420,7 +420,7 @@ namespace Candy
     #pragma endregion
 };
 
-namespace Candy
+namespace Chess
 {
     Board::Board(int p_SizeBoard, SDL_Renderer* p_Renderer)
         : m_BoardSize(p_SizeBoard), m_Renderer(p_Renderer)

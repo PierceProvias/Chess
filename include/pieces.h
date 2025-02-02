@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include "pieces_def.h"
 
-namespace Candy{
+namespace Chess{
     
     class Piece
     {

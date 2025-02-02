@@ -5,7 +5,7 @@
 #include "moves_def.h"
 #include <array>
 
-namespace Candy{
+namespace Chess{
     class Board {
         
     public:

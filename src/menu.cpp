@@ -1,13 +1,13 @@
 #include "../include/menu.h"
 #define BUTTON_FONT "/Users/pierce/Documents/programming/projects/chess/assets/fonts/Pacifico.ttf"
 
-void Candy::Menu::initButtons()
+void Chess::Menu::initButtons()
 {
 	m_PlayButton = new Button(m_Renderer, "Play", BUTTON_FONT);
 	m_QuitButton = new Button(m_Renderer, "Quit", BUTTON_FONT);
 }
 
-void Candy::Menu::setButtonProperty()
+void Chess::Menu::setButtonProperty()
 {
 	m_PlayButton->setFontSize(50);
 	m_QuitButton->setFontSize(50);
@@ -18,7 +18,7 @@ void Candy::Menu::setButtonProperty()
 
 }
 
-Candy::Menu::Menu(SDL_Renderer* p_Renderer)
+Chess::Menu::Menu(SDL_Renderer* p_Renderer)
 	: m_Renderer(p_Renderer)
 {
 	initButtons();
@@ -26,7 +26,7 @@ Candy::Menu::Menu(SDL_Renderer* p_Renderer)
 	// later add texture to the Background and button 
 }
 
-void Candy::Menu::DisplayMenu()
+void Chess::Menu::DisplayMenu()
 {
 	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 255);
 	SDL_RenderClear(m_Renderer);
@@ -38,19 +38,19 @@ void Candy::Menu::DisplayMenu()
 	SDL_RenderPresent(m_Renderer);
 }
 // window for Gameover
-void Candy::Menu::DisplayGameOver(std::string p_Winner)
+void Chess::Menu::DisplayGameOver(std::string p_Winner)
 {
 	// do it later f
 
 
 }
 
-/*void Candy::Menu::Update()
+/*void Chess::Menu::Update()
 {
 }
 */
 
-const Menu_State Candy::Menu::getMenuState() const
+const Menu_State Chess::Menu::getMenuState() const
 {
 	SDL_Event event;
 	if (SDL_WaitEvent(&event))

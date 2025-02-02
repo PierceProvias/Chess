@@ -3,7 +3,7 @@
 #include "../include/texture_manager.h"
 #include <iostream>
 
-void Candy::Button::initButton()
+void Chess::Button::initButton()
 {
 	m_FontPath = "";
 	m_FontSize = DEFAULTBUTTON_FONT_SIZE;
@@ -14,7 +14,7 @@ void Candy::Button::initButton()
 	m_ButtonTextTexture = NULL;
 }
 
-Candy::Button::Button(SDL_Renderer* p_Renderer, std::string text, const char* filename)
+Chess::Button::Button(SDL_Renderer* p_Renderer, std::string text, const char* filename)
 {
 	int _ButtonSize = text.size();
 	initButton();
@@ -24,12 +24,12 @@ Candy::Button::Button(SDL_Renderer* p_Renderer, std::string text, const char* fi
 	createTextTexture(m_FontPath.c_str(), text.c_str());
 }
 
-Candy::Button::~Button()
+Chess::Button::~Button()
 {
 	SDL_DestroyTexture(m_ButtonTextTexture);
 }
 
-void Candy::Button::render()
+void Chess::Button::render()
 {
 	if (UI_Texture == NULL)
 	{
@@ -45,7 +45,7 @@ void Candy::Button::render()
 	}
 }
 
-bool Candy::Button::IsButtonClick(SDL_Event* event)
+bool Chess::Button::IsButtonClick(SDL_Event* event)
 {
 		if (event->type == SDL_MOUSEBUTTONUP)
 		{
@@ -63,7 +63,7 @@ bool Candy::Button::IsButtonClick(SDL_Event* event)
 	return false;
 }
 
-void Candy::Button::setTexture(const char* filename)
+void Chess::Button::setTexture(const char* filename)
 {
 	UI_Texture = TextureManger::GetTexture(UI_Renderer, filename);
 	if (UI_Texture == NULL)
@@ -72,36 +72,36 @@ void Candy::Button::setTexture(const char* filename)
 	}
 }
 
-void Candy::Button::setText(const char* Text)
+void Chess::Button::setText(const char* Text)
 {
 	m_ButtonText = Text;
 	createTextTexture(m_FontPath.c_str(), m_ButtonText.c_str());
 }
 
-void Candy::Button::setFont(const char* filePath)
+void Chess::Button::setFont(const char* filePath)
 {
 	m_FontPath = filePath;
 	createTextTexture(m_FontPath.c_str(), m_ButtonText.c_str());
 }
 
-void Candy::Button::setFontSize(const int& size)
+void Chess::Button::setFontSize(const int& size)
 {
 	m_FontSize = size;
 	createTextTexture(m_FontPath.c_str(), m_ButtonText.c_str());
 }
 
-void Candy::Button::setRect(SDL_Rect& rect)
+void Chess::Button::setRect(SDL_Rect& rect)
 {
 	UI_Box = rect;
 }
 
-void Candy::Button::setPosition(int x, int y)
+void Chess::Button::setPosition(int x, int y)
 {
 	UI_Box.x = x;
 	UI_Box.y = y;
 }
 
-void Candy::Button::createTextTexture(const char* p_FontPath,const char* p_Text)
+void Chess::Button::createTextTexture(const char* p_FontPath,const char* p_Text)
 {
 	TTF_Font* _font = TTF_OpenFont(p_FontPath, m_FontSize);
 

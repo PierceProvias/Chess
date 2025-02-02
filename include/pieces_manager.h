@@ -5,7 +5,7 @@
 #include "board.h"
 #include <array>
 
-namespace Candy {
+namespace Chess {
     
     class PiecesManager 
     {

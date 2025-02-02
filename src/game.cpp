@@ -4,7 +4,7 @@
 #include <SDL_render.h>
 #include <iostream> 
 
-namespace Candy{
+namespace Chess{
 
     void Game::init()
     {

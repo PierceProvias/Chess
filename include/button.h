@@ -3,7 +3,7 @@
 #include "button_def.h"
 #include <string>
 
-namespace Candy {
+namespace Chess {
     class Button : public UI
     {
     public:

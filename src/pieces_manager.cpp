@@ -38,23 +38,22 @@ namespace Chess
     
     PiecesManager::PiecesManager(SDL_Renderer* p_Renderer,int BoardSize)
           : m_Renderer(p_Renderer), m_BoardPieceSize(BoardSize/MAX_PIECES_LINE)
-      {
-           Piece::s_Renderer = m_Renderer;
-          init();
-          initDefaultBoard();
-          CalculatePieces();
-            for (int row = 0 ; row < MAX_PIECES_LINE ; row++)
-                for (int col =0 ; col < MAX_PIECES_LINE ; col++)
-                    m_DrawPieces[row][col].setPieceSize(m_BoardPieceSize);
-                    // m_DrawPieces[row][col].setOrgin(+m_BoardPieceSize/2,+m_BoardPieceSize/2);
-          }
+    {
+        Piece::s_Renderer = m_Renderer;
+        init();
+        initDefaultBoard();
+        CalculatePieces();
+        for (int row = 0 ; row < MAX_PIECES_LINE ; row++)
+            for (int col =0 ; col < MAX_PIECES_LINE ; col++)
+                m_DrawPieces[row][col].setPieceSize(m_BoardPieceSize);
+        // m_DrawPieces[row][col].setOrgin(+m_BoardPieceSize/2,+m_BoardPieceSize/2);
+    }
       
     void PiecesManager::addPiece(const char* p_FilePath, int row, int col)
     {
 
         m_DrawPieces[row][col].setTextureFromPath(p_FilePath);
-        m_DrawPieces[row][col].setPosition((col * m_BoardPieceSize) ,
-                             (row * m_BoardPieceSize));
+        m_DrawPieces[row][col].setPosition((col * m_BoardPieceSize),(row * m_BoardPieceSize));
     }
 
     void PiecesManager::CalculatePieces()
@@ -193,7 +192,7 @@ namespace Chess
 
         }
         else if (!p_state)
-        {
+        {   
             m_PieceSelectState = false;
             int  _newCol= *p_MouseX / m_BoardPieceSize;
             int  _newRow = *p_MouseY / m_BoardPieceSize;

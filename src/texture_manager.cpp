@@ -1,5 +1,5 @@
 #include "../include/texture_manager.h"
-#include <SDL2/SDL_image.h>
+#include <SDL_image.h>
 #include <cstddef>
 
 namespace Chess{
@@ -22,6 +22,4 @@ namespace Chess{
         
         SDL_RenderCopy(p_Renderer,p_Texture,NULL,p_DsntRect);
     }
-
-
 };

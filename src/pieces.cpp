@@ -3,7 +3,7 @@
 #include "../include/pieces_def.h"
 #include <SDL2/SDL_error.h>
 #include <iostream> 
-#include <SDL2/SDL_image.h>
+#include <SDL_image.h>
 
 
 namespace Chess{

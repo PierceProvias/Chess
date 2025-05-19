@@ -90,7 +90,7 @@ bool possibleMoveBlackPawn(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIEC
 
 #pragma region King
 // TODO: Castling
-static bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
+bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
     // Illegal moves
     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7
@@ -109,25 +109,38 @@ static bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
     // Castle
     if (StartPos.Col + 2 == EndPos.Col || StartPos.Col - 2 == EndPos.Col)
     {
-        if(p_PieceBoard[7][7] == PIECES_TYPE::WHITE_ROOK)
+        // Right
+        /*
+        if(p_PieceBoard[7][7] == PIECES_TYPE::WHITE_ROOK && p_PieceBoard[7][5] == PIECES_TYPE::EMPTY && p_PieceBoard[7][6] == PIECES_TYPE::EMPTY)
         {
-            //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
-
-             //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
-            //return true;
-            p_PieceBoard[7][5] = p_PieceBoard[7][7];
-            p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
-            p_PieceBoard[7][6] = PIECES_TYPE::WHITE_KING;
-            p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
-            if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING && p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK)
-            {
-                std::cout << "White rook \n";
-                return Moves::isCastled();
-
-            }
             
+                //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+
+                //if (p_PieceBoard[EndPos.Row][EndPos.Col] != PIECES_TYPE::EMPTY)
+                //return true;
+                p_PieceBoard[7][5] = p_PieceBoard[7][7];
+                p_PieceBoard[7][7] = PIECES_TYPE::EMPTY;
+                p_PieceBoard[7][6] = PIECES_TYPE::WHITE_KING;
+                p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
+                if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING && p_PieceBoard[7][5] == PIECES_TYPE::WHITE_ROOK)
+                {
+
+                    std::cout << "White rook \n";
+                    return true;
+                    //return Moves::isCastled();
+                    
+                }
         }
-       //Moves::Castle(p_PieceBoard, StartPos, EndPos);
+        */
+
+        std::cout << p_PieceBoard[7][4] << std::endl;
+        p_PieceBoard[7][4] = PIECES_TYPE::EMPTY;
+        std::cout << p_PieceBoard[7][4] << std::endl;
+
+        std::cout << p_PieceBoard[7][6] << std::endl;
+        p_PieceBoard[7][6] = PIECES_TYPE::WHITE_KING;
+        std::cout << p_PieceBoard[7][6] << std::endl;
+        return Moves::isCastled();
 
     }   
     return false;
@@ -135,7 +148,7 @@ static bool possibleMoveKing(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
 #pragma endregion
 
 #pragma region Rook
-static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
+bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
 {
     // Invalid moves
     if (StartPos.Row < 0 || StartPos.Row > 7 || StartPos.Col < 0 || StartPos.Col > 7 ||
@@ -207,12 +220,19 @@ static bool possibleMoveRook(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PI
         }
     }
     
-    if(Moves::isCastled() && StartPos.Col -2 == EndPos.Col && StartPos.Row == EndPos.Row)
+    if(StartPos.Col -2 == EndPos.Col && StartPos.Row == EndPos.Row)
     {
-        std::cout << "White King Castled" << std::endl;
+        std::cout << "Rook moves" << std::endl;
+        /*
+        
+        if(Moves::isCastled())
+        {
+            std::cout << "Rook moves" << std::endl;
+            return true;
+        }
         return true;
+        */
     }
-    
     return false;
 } 
 #pragma endregion
@@ -306,18 +326,18 @@ static bool possibleMoveBishop(std::array<std::array<int, MAX_PIECES_LINE>, MAX_
 #pragma endregion
 
 #pragma region Queen
- bool possibleMoveQueen(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
- {
-     if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
-     {
-        // Queen movement = Rook + Bishop
-         if (possibleMoveRook(p_PieceBoard,StartPos, EndPos) || possibleMoveBishop(p_PieceBoard, StartPos, EndPos))
-         {
-             return true;
-         }
-     }
-     return false;
- }
+bool possibleMoveQueen(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard,const PiecePosition StartPos, const PiecePosition EndPos)
+{
+    if (0 <= EndPos.Row && EndPos.Row <= 7 && 0 <= EndPos.Col && EndPos.Col <= 7)
+    {
+    // Queen movement = Rook + Bishop
+        if (possibleMoveRook(p_PieceBoard,StartPos, EndPos) || possibleMoveBishop(p_PieceBoard, StartPos, EndPos))
+        {
+            return true;
+        }
+    }
+    return false;
+}
 #pragma endregion
 
 #pragma region Knight
@@ -412,26 +432,19 @@ bool Moves::ValidMove(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LI
     return _WrongMove;
 }
 
-bool Moves::Castle(std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard, PiecePosition p_OldPosition, PiecePosition p_NewPosition)
-{
-    
-    if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING)
-    return false;
-    
-}
 
+//  TODO: Add params like ValidMove; Maybe add two piece params (1 King, 1 Rook) 
 bool Moves::isCastled()
 {
     std::array<std::array<int, MAX_PIECES_LINE>, MAX_PIECES_LINE> p_PieceBoard;
-    if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING )
+    if(p_PieceBoard[7][6] == PIECES_TYPE::WHITE_KING)
     {
-        p_PieceBoard[7][5] = PIECES_TYPE::WHITE_ROOK;
-
         std::cout << "Is castled\n";
         return true;
     }
     return false;
 }
+
 
 
 /*

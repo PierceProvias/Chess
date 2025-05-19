@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "board.h"
 #include "pieces_manager.h"
 #include "button.h"

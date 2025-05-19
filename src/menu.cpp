@@ -1,5 +1,5 @@
 #include "../include/menu.h"
-#define BUTTON_FONT "/Users/pierce/Documents/programming/projects/chess/assets/fonts/Pacifico.ttf"
+#define BUTTON_FONT "/Users/pierce/Documents/programming/projects/chess/assets/fonts/DMSerifText-Regular.ttf"
 
 void Chess::Menu::initButtons()
 {

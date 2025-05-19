@@ -1,5 +1,5 @@
 #include "../include/button.h"
-#include <SDL2/SDL_ttf.h>
+#include <SDL_ttf.h>
 #include "../include/texture_manager.h"
 #include <iostream>
 

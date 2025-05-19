@@ -38,6 +38,7 @@ namespace PIECES_TYPE {
     const int BLACK_PAWN = -6;
 };
 
+
 #define MAX_PIECES_SPACE 64
 #define MAX_PIECES_LINE 8
 #define MAX_DIFFERENT_TYPES_PIECES 16

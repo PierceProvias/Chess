@@ -1,5 +1,6 @@
 #include "../include/menu.h"
-#define BUTTON_FONT "/Users/pierce/Documents/programming/projects/chess/assets/fonts/DMSerifText-Regular.ttf"
+
+#define BUTTON_FONT "assets/fonts/DMSerifText-Regular.ttf"
 
 void Chess::Menu::initButtons()
 {
@@ -33,8 +34,6 @@ void Chess::Menu::DisplayMenu()
 
 	m_PlayButton->render();
 	m_QuitButton->render();
-
-
 	SDL_RenderPresent(m_Renderer);
 }
 // window for Gameover

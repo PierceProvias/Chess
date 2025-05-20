@@ -108,6 +108,7 @@ void Chess::Button::createTextTexture(const char* p_FontPath,const char* p_Text)
 	SDL_Surface* _surface = TTF_RenderText_Solid(_font,p_Text,m_ButtonTextColor);
 
 	m_ButtonTextTexture = SDL_CreateTextureFromSurface(UI_Renderer, _surface);
+	SDL_Log("Base path: %s", SDL_GetBasePath());
 	if (m_ButtonTextTexture == NULL)
 	{
 		SDL_Log("Failed to create Text Texture!!" );
@@ -115,5 +116,4 @@ void Chess::Button::createTextTexture(const char* p_FontPath,const char* p_Text)
 	SDL_Log("Error::BUTTON::TEXT %s ", SDL_GetError());
 	TTF_CloseFont(_font);
 	SDL_FreeSurface(_surface);
-
 }

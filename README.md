@@ -2,6 +2,8 @@
 
 This is a simple chess game built using SDL2 and CMake for compilation. It allows two players to play chess on a graphical interface with basic features like piece movement, board setup, and game logic.
 
+![Chess gif](https://github.com/user-attachments/assets/dbc2fccb-f822-4ecd-a1d7-1797d89b7d57)
+
 ## Requirements
 
 - CMake (v3.10 or higher)

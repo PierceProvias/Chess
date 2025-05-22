@@ -10,12 +10,13 @@ void Chess::Menu::initButtons()
 
 void Chess::Menu::setButtonProperty()
 {
-	m_PlayButton->setFontSize(50);
-	m_QuitButton->setFontSize(50);
 	// Play button 
-	m_PlayButton->setPosition(100,100);
+	m_PlayButton->setFontSize(50);
+	m_PlayButton->setPosition(150,125);
+	
 	// Quit button
-	m_QuitButton->setPosition(100,400);
+	m_QuitButton->setFontSize(50);
+	m_QuitButton->setPosition(150,325);
 
 }
 
@@ -29,7 +30,7 @@ Chess::Menu::Menu(SDL_Renderer* p_Renderer)
 
 void Chess::Menu::DisplayMenu()
 {
-	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_Renderer);
 
 	m_PlayButton->render();

@@ -18,7 +18,7 @@ Chess::Button::Button(SDL_Renderer* p_Renderer, std::string text, const char* fi
 {
 	int _ButtonSize = text.size();
 	initButton();
-	init_UI(p_Renderer, { 0,0,0,255}, { 0,0,300,100});
+	init_UI(p_Renderer, { 255, 255, 255,255}, { 0,0,300,100});
 	m_FontPath = filename;
 	m_ButtonText = text;
 	createTextTexture(m_FontPath.c_str(), text.c_str());
